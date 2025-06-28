@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   base:'/XIAOHUANG_BLOG/',
   head: [ //网站头
-      ["link", { rel:"icon" ,href: "icons/网站/笔记本.svg" }]
+      ["link", { rel:"icon" ,href: "'/XIAOHUANG_BLOG/'icons/网站/笔记本.svg" }]
     ],
   title: "IDEA SUPPORT",
   description: "FOR IDEA",
@@ -23,7 +23,7 @@ export default defineConfig({
         {text: 'svg转icon', link: 'https://cdkm.com/cn/svg-to-ico'},
         {text: '阿里icon库', link: 'https://www.iconfont.cn/'},
         {text: 'Deepseek', link: 'https://www.deepseek.com/'},
-        {text: '通义千问', link: 'https://www.deepseek.com/'},
+        {text: '通义千问', link: 'https://www.tongyi.com/?code=lapnbfugti&msclkid=75a58be1fdbe1488eacfe3be3da50b2f'},
         {text: '高保真图', link: 'https://cdkm.com/cn/svg-to-ico'},
         {text: '建站速通', link: 'https://docs.bugdesigner.cn/README.html#%E9%83%A8%E7%BD%B2%E6%AD%A5%E9%AA%A4'}
       ] },
