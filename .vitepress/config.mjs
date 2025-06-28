@@ -2,6 +2,12 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  markdown: {
+    async config(md) {
+      const mathjax3 = await import('markdown-it-mathjax3')
+      md.use(mathjax3.default)
+    }
+  },
   base:'/XIAOHUANG_BLOG/',
   head: [ //网站头
       ["link", { rel:"icon" ,href: "/XIAOHUANG_BLOG/icons/网站/笔记本.svg" }]

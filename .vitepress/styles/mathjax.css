@@ -1,0 +1,13 @@
+/* 确保公式正确显示 */
+mjx-container {
+  display: inline-block;
+  margin: 0 2px;
+  vertical-align: middle;
+}
+
+/* 块级公式 */
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  margin: 1em 0;
+  text-align: center;
+}

@@ -22,8 +22,9 @@ hero:
       link: xiaohuang_mdwork/卷积手写数字识别C语言.md
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: 在线下载
+    details: 快速获取所需的公开资料
+    link: xiaohuang_mdwork/公开下载资料_首页.md
   - title: Feature B
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - title: Feature C
