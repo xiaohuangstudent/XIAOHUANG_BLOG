@@ -4,8 +4,8 @@
 layout: home
 
 hero:
-  name: "小黄同学的Online知识库"
-  text: "FOR IDEA"
+  name: "小黄的Online知识库"
+
   tagline: "Go ahead!"
   image:
     src: icons/网站/智能.png
@@ -14,20 +14,18 @@ hero:
     - theme: brand  #按钮
       text: Deepseek
       link: https://www.deepseek.com/
-    - theme: alt
-      text: 官方示例文档
-      link: /api-examples
-    - theme: brand  #按钮
-      text: 我的示例文档
-      link: xiaohuang_mdwork/卷积手写数字识别C语言.md
+    
 
 features:
   - title: 在线下载
     details: 快速获取所需的公开资料
     link: xiaohuang_mdwork/公开下载资料_首页.md
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
----
+  - title: 软件工具
+    details: 快速获取所需的公开软件资料
+  - title: 硬件工具
+    details: 快速获取所需的公开软件资料
+    link: xiaohuang_mdwork/硬件工具.md
+  - title: 数据集
+    details: 快速获取所需的公开数据集资料
+    link: xiaohuang_mdwork/硬件工具.md
 
