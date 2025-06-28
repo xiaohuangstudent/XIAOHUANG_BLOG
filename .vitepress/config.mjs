@@ -22,7 +22,7 @@ export default defineConfig({
       { text: '功能网站', items:[
         {text: 'svg转icon', link: 'https://cdkm.com/cn/svg-to-ico'},
         {text: '阿里icon库', link: 'https://www.iconfont.cn/'},
-        {text: 'Deepseek', link: 'https://www.deepseek.com/'},
+        {text: 'Deepseek直达', link: 'https://www.deepseek.com/'},
         {text: '通义千问', link: 'https://www.tongyi.com/'},
         {text: '高保真图', link: 'https://cdkm.com/cn/svg-to-ico'},
         {text: '建站速通', link: 'https://docs.bugdesigner.cn/README.html#%E9%83%A8%E7%BD%B2%E6%AD%A5%E9%AA%A4'}
