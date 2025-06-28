@@ -20,7 +20,7 @@ export default defineConfig({
       //基础格式 { text: 'Home', link: '/' },
       { text: '首页', link: '/' },
       { text: '功能网站', items:[
-        {text: 'svg转icon', link: 'https://cdkm.com/cn/svg-to-ico'},
+        {text: 'svg转icon直达', link: 'https://cdkm.com/cn/svg-to-ico'},
         {text: '阿里icon库', link: 'https://www.iconfont.cn/'},
         {text: 'Deepseek直达', link: 'https://www.deepseek.com/'},
         {text: '通义千问', link: 'https://www.tongyi.com/'},
