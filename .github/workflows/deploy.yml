@@ -50,7 +50,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: /XIAOHUANG_BLOG/.vitepress/dist
+          path: dist
 
   # Deployment job
   deploy:
