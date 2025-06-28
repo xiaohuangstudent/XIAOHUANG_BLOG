@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base:'/XIAOHUANG_BLOG/',
   head: [ //网站头
       ["link", { rel:"icon" ,href: "icons/网站/笔记本.svg" }]
     ],
