@@ -24,7 +24,7 @@ features:
     details: 快速获取所需的公开软件资料
   - title: 硬件工具
     details: 快速获取所需的公开软件资料
-    link: xiaohuang_mdwork/硬件工具.md
+    link: xiaohuang_mdwork/硬件资料/硬件资料主页目录.md
   - title: 数据集
     details: 快速获取所需的公开数据集资料
     link: xiaohuang_mdwork/硬件工具.md
