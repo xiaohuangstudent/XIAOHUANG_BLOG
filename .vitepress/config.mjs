@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  ignoreDeadLinks: true, // 忽略死链接
   markdown: {
     async config(md) {
       const mathjax3 = await import('markdown-it-mathjax3')
@@ -34,7 +35,7 @@ export default defineConfig({
         {text: '建站速通', link: 'https://docs.bugdesigner.cn/README.html#%E9%83%A8%E7%BD%B2%E6%AD%A5%E9%AA%A4'}
       ] },
       { text: '快速软件', items:[
-        { text: 'Markdown快速导出工具', link: '/xiaohuang_mdwork/md文档提取工具/Markdown文本自动提取软件.md' },
+        { text: 'Markdown快速导出工具', link: '/xiaohuang_mdwork/快速软件/md文档提取工具/Markdown文本自动提取软件.md' },
       ]},
       { text: '编程语法', items:[
         { text: 'Python', link: '/' },
