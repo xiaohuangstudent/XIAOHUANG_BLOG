@@ -27,13 +27,8 @@ features:
   - title: 硬件工具
     details: 快速获取所需的公开软件资料
     link: xiaohuang_mdwork/硬件资料/硬件资料主页目录.md
-  - title: 硬件驱动
-    details: 快速获取所需的硬件驱动资料
-    link: xiaohuang_mdwork/硬件驱动/
   - title: 数据集
     details: 快速获取所需的公开数据集资料
     link: xiaohuang_mdwork/硬件工具.md
-  - title: 竞赛资料
-    details: 快速获取所需的公开竞赛资料
-    link: xiaohuang_mdwork/竞赛资料_首页.md
+
 
