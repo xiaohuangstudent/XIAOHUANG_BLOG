@@ -327,11 +327,3 @@ void process_micolink_message(MICOLINK_MSG_t* msg)
 }
 
 ```
-
-四元数求解欧拉角
-
->  [!Tip]
-> $$
-> r=arctan(\frac{2(q_0q_1+q_2q_3)}{1-2(q_1^2+q_2^2)})\\p=arcsin(2(q_0q_2-q_1q_3))\\y=arctan(\frac{2(q_0q_3+q_1q_2)}{1-2(q_2^2+q_3^2)})=arctan(\frac{2(q_0q_3+q_1q_2)}{q_0^2+q_1^2-q_2^2-q_3^2})
-> $$
-> 其中$r(roll),p(pitch),y(yaw)$分别为滚转角，俯仰角，偏航角
