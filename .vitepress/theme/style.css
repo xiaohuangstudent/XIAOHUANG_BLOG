@@ -176,3 +176,34 @@
   padding-top: 24px;
   border: none;
 }
+
+/* 代码块最大高度和滚动 */
+.vp-doc div[class*="language-"],
+.vp-doc pre[class*="language-"] {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* 滚动条样式 */
+.vp-doc div[class*="language-"]::-webkit-scrollbar,
+.vp-doc pre[class*="language-"]::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.vp-doc div[class*="language-"]::-webkit-scrollbar-track,
+.vp-doc pre[class*="language-"]::-webkit-scrollbar-track {
+  background: var(--vp-c-bg-alt);
+  border-radius: 4px;
+}
+
+.vp-doc div[class*="language-"]::-webkit-scrollbar-thumb,
+.vp-doc pre[class*="language-"]::-webkit-scrollbar-thumb {
+  background: var(--vp-c-divider);
+  border-radius: 4px;
+}
+
+.vp-doc div[class*="language-"]::-webkit-scrollbar-thumb:hover,
+.vp-doc pre[class*="language-"]::-webkit-scrollbar-thumb:hover {
+  background: var(--vp-c-text-2);
+}

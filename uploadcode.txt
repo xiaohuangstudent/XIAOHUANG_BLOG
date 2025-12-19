@@ -1,0 +1,5 @@
+npm run docs:dev
+npm run docs:build
+git add .
+git commit -m "补充"
+git push -u origin main
