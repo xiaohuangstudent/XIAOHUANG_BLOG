@@ -6,7 +6,7 @@ layout: home
 hero:
   name: "小黄同学的在线笔记"
   text: 偷偷看一眼
-  tagline: "发现真的很好学!!!"
+  tagline: "发现真的很好看!!!"
   image:
     src: icons/网站/智能.png
     alt: 背景图

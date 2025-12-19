@@ -18,7 +18,6 @@ import "nprogress-v2/dist/index.css"; // 进度条样式
 import busuanzi from "busuanzi.pure.js" //浏览量
 import Layout from './Layout.vue'
 
-
 /** @type {import('vitepress').Theme} */
 export default {
   Layout, //评论模块
