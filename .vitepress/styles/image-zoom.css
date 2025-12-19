@@ -1,0 +1,79 @@
+/* 图片放大样式 */
+.image-zoom-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 10000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+}
+
+.image-zoom-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+  cursor: grab;
+  user-select: none;
+}
+
+.image-zoom-overlay img.zooming {
+  transition: transform 0.1s ease;
+}
+
+.image-zoom-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10002;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.image-zoom-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.image-zoom-close:active {
+  transform: scale(0.95);
+}
+
+/* 缩放提示 */
+.image-zoom-overlay::after {
+  content: '双击重置缩放 • 滚轮缩放 • 拖拽移动';
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  pointer-events: none;
+}
+
+/* 为文档中的图片添加悬停效果 */
+.vp-doc img {
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+}
+
+.vp-doc img:hover {
+  transform: scale(1.02);
+}

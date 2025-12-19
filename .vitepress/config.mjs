@@ -6,7 +6,60 @@ export default defineConfig({
   markdown: {
     async config(md) {
       const mathjax3 = await import('markdown-it-mathjax3')
-      md.use(mathjax3.default)
+      
+      // 自定义插件：在数学公式元素上添加data-original属性
+      md.use(function mathOriginalPlugin() {
+        // 存储原始渲染规则
+        const defaultRender = md.renderer.rules.math_inline || function(tokens, idx, options, env, self) {
+          return self.renderToken(tokens, idx, options);
+        };
+        
+        const defaultDisplayRender = md.renderer.rules.math_block || function(tokens, idx, options, env, self) {
+          return self.renderToken(tokens, idx, options);
+        };
+        
+        // 覆盖行内数学公式渲染
+        md.renderer.rules.math_inline = function(tokens, idx, options, env, self) {
+          const token = tokens[idx];
+          const content = token.content;
+          
+          // 调用原始渲染
+          const result = defaultRender(tokens, idx, options, env, self);
+          
+          // 在结果中添加data-original属性
+          if (result.includes('<script')) {
+            // 对于MathJax3，我们可以在script标签后添加一个隐藏的span
+            return result + `<span class="math-original" style="display:none;" data-math-original="$${content}$"></span>`;
+          }
+          
+          return result;
+        };
+        
+        // 覆盖行间数学公式渲染
+        md.renderer.rules.math_block = function(tokens, idx, options, env, self) {
+          const token = tokens[idx];
+          const content = token.content;
+          
+          // 调用原始渲染
+          const result = defaultDisplayRender(tokens, idx, options, env, self);
+          
+          // 在结果中添加data-original属性
+          if (result.includes('<script')) {
+            // 对于MathJax3，我们可以在script标签后添加一个隐藏的span
+            return result + `<span class="math-original" style="display:none;" data-math-original="$$${content}$$"></span>`;
+          }
+          
+          return result;
+        };
+      });
+      
+      // 使用MathJax3插件
+      md.use(mathjax3.default, {
+        // MathJax3配置
+        tex: {
+          tags: 'ams'
+        }
+      });
     }
   },
   
@@ -72,7 +125,7 @@ export default defineConfig({
     `]
   ],
   base:'/XIAOHUANG_BLOG/',
-  title: "IDEA SUPPORT",
+  title: "小黄同学的在线笔记",
   description: "FOR IDEA",
   themeConfig: {
     outlineTitle: "目录",  // outline-显示标题
@@ -85,6 +138,7 @@ export default defineConfig({
     nav: [  //导航栏
       //基础格式 { text: 'Home', link: '/' },
       { text: '首页', link: '/' },
+      { text: '前端导航', link: '/xiaohuang_mdwork/前端导航/前端导航目录.md' },
       { text: '功能网站', items:[
         {text: 'svg转icon', link: 'https://cdkm.com/cn/svg-to-ico'},
         {text: '阿里icon库', link: 'https://www.iconfont.cn/'},

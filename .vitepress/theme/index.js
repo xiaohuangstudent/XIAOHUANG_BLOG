@@ -4,6 +4,16 @@ import DefaultTheme from 'vitepress/theme'
 import './style.css'
 import '../styles/mathjax.css'
 import '../styles/custom.css'
+import '../styles/image-zoom.css'
+
+import { onMounted, watch, nextTick } from 'vue';
+import { useRoute } from 'vitepress';
+import { setupImageZoom, initImageZoom } from './image-zoom.js';
+import { initMathCopy } from './copy-math.js';
+
+import { inBrowser } from "vitepress";
+import { NProgress } from "nprogress-v2/dist/index.js"; // 进度条组件
+import "nprogress-v2/dist/index.css"; // 进度条样式
 
 /** @type {import('vitepress').Theme} */
 export default {
@@ -14,6 +24,37 @@ export default {
     })
   },
   enhanceApp({ app, router, siteData }) {
-    // ...
-  }
+    // 切换路由进度条
+    if (inBrowser) {
+      NProgress.configure({ showSpinner: false });
+
+      router.onBeforeRouteChange = () => {
+        NProgress.start(); // 开始进度条
+      };
+      
+      router.onAfterRouteChange = () => {
+        NProgress.done(); // 停止进度条
+      };
+    }
+  },
+  setup() {
+    const route = useRoute();
+    
+    // 设置图片放大功能
+    onMounted(() => {
+      setupImageZoom();
+      initMathCopy();
+    });
+    
+    // 路由变化时重新初始化图片放大和数学公式复制
+    watch(
+      () => route.path,
+      () => nextTick(() => {
+        setTimeout(() => {
+          initImageZoom();
+          initMathCopy();
+        }, 100);
+      })
+    );
+  },
 }

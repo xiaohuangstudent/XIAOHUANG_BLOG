@@ -1,4 +1,9 @@
 /* .vitepress/styles/custom.css */
 @import "./blockquote.css";
-@import "./custom-block.css"
+@import "./custom-block.css";
+@import "./blur.css";
+@import "./marker.css";
+@import "./vp-code.css";
+@import "./medium-zoom.css";
+@import "var.css";
 /* 可以添加其他自定义样式，此文件为样式入口 */

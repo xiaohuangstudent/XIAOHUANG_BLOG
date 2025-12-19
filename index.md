@@ -4,26 +4,29 @@
 layout: home
 
 hero:
-  name: "小黄的Online知识库"
-
-  tagline: "真的很好学!!!"
+  name: "小黄的在线笔记"
+  text: 偷偷看一眼
+  tagline: "发现真的很好学!!!"
   image:
     src: icons/网站/智能.png
     alt: 背景图
   actions:
-    - theme: brand  #按钮
+    - theme: alt
       text: 算法笔记
-      link: xiaohaung_mdwork/算法笔记/算法笔记主页目录.md
+      link: xiaohuang_mdwork/算法笔记/算法笔记主页目录.md
+      
     - theme: brand  #按钮
       text: Deepseek
       link: https://www.deepseek.com/
 
-    
+
 
 features:
-  - title: 在线下载
+  - icon: 📖
+    title: 算法笔记
     details: 快速获取所需的公开资料
-    link: xiaohuang_mdwork/公开下载资料_首页.md
+    link: xiaohuang_mdwork/算法笔记/算法笔记主页目录.md
+    
   - title: 软件工具
     details: 快速获取所需的公开软件资料
   - title: 硬件工具
@@ -35,6 +38,12 @@ features:
   - title: 联系我们
     details: 快速获取所需的公开数据集资料
     link: xiaohuang_mdwork/联系我们/联系我们.md
+
+  - title: 页面测试
+    details: 快速获取所需的公开数据集资料
+    link: xiaohuang_mdwork/测试/test.md
     
+
+
 
 
