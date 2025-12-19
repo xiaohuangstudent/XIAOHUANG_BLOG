@@ -9,10 +9,69 @@ export default defineConfig({
       md.use(mathjax3.default)
     }
   },
+  
+  // 添加自定义CSS实现标题自动编号
+  head: [
+    ["link", { rel:"icon" ,href: "/XIAOHUANG_BLOG/icons/网站/笔记本.svg" }],
+    ["style", {}, `
+      /* 标题自动编号 */
+      .vp-doc h2 {
+        counter-increment: h2;
+        counter-reset: h3;
+      }
+      
+      .vp-doc h2:before {
+        content: counter(h2) ". ";
+        font-weight: bold;
+      }
+      
+      .vp-doc h3 {
+        counter-increment: h3;
+        counter-reset: h4;
+      }
+      
+      .vp-doc h3:before {
+        content: counter(h2) "." counter(h3) ". ";
+        font-weight: bold;
+      }
+      
+      .vp-doc h4 {
+        counter-increment: h4;
+       
+        counter-reset: h5;
+      }
+      
+      .vp-doc h4:before {
+        content: counter(h2) "." counter(h3) "." counter(h4) ". ";
+        font-weight: bold;
+      }
+      
+      .vp-doc h5 {
+        counter-increment: h5;
+        counter-reset: h6;
+      }
+      
+      .vp-doc h5:before {
+        content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". ";
+        font-weight: bold;
+      }
+      
+      .vp-doc h6 {
+        counter-increment: h6;
+      }
+      
+      .vp-doc h6:before {
+        content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". ";
+        font-weight: bold;
+      }
+      
+      /* 重置一级标题的计数器 */
+      .vp-doc {
+        counter-reset: h2;
+      }
+    `]
+  ],
   base:'/XIAOHUANG_BLOG/',
-  head: [ //网站头
-      ["link", { rel:"icon" ,href: "/XIAOHUANG_BLOG/icons/网站/笔记本.svg" }]
-    ],
   title: "IDEA SUPPORT",
   description: "FOR IDEA",
   themeConfig: {
@@ -37,7 +96,7 @@ export default defineConfig({
       { text: '快速软件', items:[
         { text: 'Markdown快速导出工具', link: '/xiaohuang_mdwork/快速软件/md文档提取工具/Markdown文本自动提取软件.md' },
       ]},
-      { text: '公式定理', link: '/' },
+      { text: '算法笔记', link: '/xiaohuang_mdwork/算法笔记/算法笔记主页目录.md' },
     ],
 
     // //MD文档左侧固定目录（取消注释则开启）

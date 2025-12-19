@@ -6,14 +6,18 @@ layout: home
 hero:
   name: "小黄的Online知识库"
 
-  tagline: "Go ahead!"
+  tagline: "真的很好学!!!"
   image:
     src: icons/网站/智能.png
     alt: 背景图
   actions:
     - theme: brand  #按钮
+      text: 算法笔记
+      link: xiaohaung_mdwork/算法笔记/算法笔记主页目录.md
+    - theme: brand  #按钮
       text: Deepseek
       link: https://www.deepseek.com/
+
     
 
 features:

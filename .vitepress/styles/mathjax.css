@@ -3,6 +3,8 @@ mjx-container {
   display: inline-block;
   margin: 0 2px;
   vertical-align: middle;
+  overflow: visible !important; /* 防止滚动条 */
+  max-width: 100%; /* 防止水平溢出 */
 }
 
 /* 块级公式 */
@@ -10,4 +12,35 @@ mjx-container[jax="CHTML"][display="true"] {
   display: block;
   margin: 1em 0;
   text-align: center;
+  overflow: visible !important; /* 防止滚动条 */
+  max-width: 100%; /* 防止水平溢出 */
+}
+
+/* 防止公式产生滚动条 */
+mjx-container > svg {
+  overflow: visible !important;
+  max-width: 100%;
+}
+
+/* 行内公式样式 */
+mjx-container:not([display="true"]) {
+  overflow: visible !important;
+  max-width: 100%;
+}
+
+/* 确保公式在容器内完全显示 */
+.vp-doc mjx-container {
+  overflow: visible !important;
+}
+
+/* 长公式自动换行 */
+mjx-math {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* 防止公式容器产生滚动条 */
+.vp-doc div[class*="language-"] mjx-container,
+.vp-doc pre[class*="language-"] mjx-container {
+  overflow: visible !important;
 }
