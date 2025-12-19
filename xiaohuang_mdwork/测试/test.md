@@ -1,3 +1,4 @@
+
 # 🧭 前端导航
 
 ## 🛠️ 常用工具
@@ -68,7 +69,7 @@
   </div>
 </div>
 
-## 🌐 茂茂的站点导航
+## 🌐 站点导航
 
 <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin: 20px 0;">
   <div style="padding: 16px; background: #fef7e6; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: all 0.2s; cursor: pointer; border: 1px solid #ffe7a6; display: flex; flex-direction: column; align-items: center; text-align: center; min-height: 120px; justify-content: center;">
@@ -199,3 +200,110 @@ div[style*="grid-template-columns: repeat(5, 1fr)"] > div:hover {
   }
 }
 </style>
+
+# MD补充
+
+<div style="text-align: center;">
+  <iframe 
+    style="width:50%; aspect-ratio:16/9; margin-top: 2em; display: inline-block;" 
+    src="https://www.youtube.com/embed/bzyMLoSwYvk" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+  </iframe>
+</div>
+
+<div style="text-align: center;">
+  <iframe 
+    style="width:50%; aspect-ratio:16/9; margin-top: 2em; display: inline-block;" 
+    src="//player.bilibili.com/player.html?bvid=BV1YptMeMEcV" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+  </iframe>
+</div>
+
+::: info
+这是一条info，自定义格式：info+空格+自定义文字
+:::
+
+::: tip 提示
+这是一个提示，自定义格式：tip+空格+自定义文字
+:::
+
+::: warning 警告
+这是一条警告，自定义格式：warning+空格+自定义文字
+:::
+
+::: danger 危险
+这是一个危险警告，自定义格式：danger+空格+自定义文字
+:::
+
+::: details 点我查看
+这是一条详情，自定义格式：details+空格+自定义文字
+:::
+
+> [!提醒] 重要
+> 强调用户在快速浏览文档时也不应忽略的重要信息。
+
+> [!建议]
+> 有助于用户更顺利达成目标的建议性信息。
+
+> [!重要]
+> 对用户达成目标至关重要的信息。
+
+> [!警告]
+> 因为可能存在风险，所以需要用户立即关注的关键内容。
+
+> [!注意]
+> 行为可能带来的负面影响。
+
+::: code-group
+
+```sh [pnpm]
+#查询pnpm版本
+pnpm -v
+```
+
+```sh [yarn]
+#查询yarn版本
+yarn -v
+```
+
+:::
+
+<details>
+  <summary>点我展开</summary>
+  Markdown默认折叠语法，Vitepress可以使用容器折叠语法，更加美观
+</details>
+
+<script setup>
+import { VPTeamMembers } from 'vitepress/theme'
+
+const members = [
+  {
+    avatar: 'https://www.github.com/yyx990803.png',
+    name: 'Evan You',
+    title: 'Creator',
+    links: [
+      { icon: 'github', link: 'https://github.com/yyx990803' },
+      { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
+    ]
+  },
+  {
+    avatar: 'https://www.github.com/kiaking.png',
+    name: 'Kia King Ishii',
+    title: 'Developer',
+    links: [
+      { icon: 'github', link: 'https://github.com/kiaking' },
+      { icon: 'twitter', link: 'https://twitter.com/KiaKing85' }
+    ]
+  },
+]
+</script>
+
+### Our Team
+
+Say hello to our awesome team.
+
+<VPTeamMembers size="medium" :members="members" />

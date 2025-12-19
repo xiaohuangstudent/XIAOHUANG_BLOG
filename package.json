@@ -9,9 +9,11 @@
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
+    "busuanzi.pure.js": "^1.0.3",
     "katex": "^0.16.27",
     "markdown-it-katex": "^2.0.3",
     "medium-zoom": "^1.1.0",
-    "nprogress-v2": "^1.1.10"
+    "nprogress-v2": "^1.1.10",
+    "vitepress-plugin-comment-with-giscus": "^1.1.15"
   }
 }

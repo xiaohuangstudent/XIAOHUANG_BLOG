@@ -2,7 +2,7 @@
 
 ## 头文件mtf01.h
 
-```
+``` c++
 /*
  * mtf01.h
  *
@@ -90,7 +90,7 @@ bool micolink_check_sum(MICOLINK_MSG_t* msg);
 
 ## 代码文件mtf01.c
 
-```
+```c++
 /*
  * mtf01.c
  *

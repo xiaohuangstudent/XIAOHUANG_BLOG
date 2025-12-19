@@ -4,6 +4,10 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   ignoreDeadLinks: true, // 忽略死链接
   markdown: {
+    image: {
+      // 开启图片懒加载
+      lazyLoading: true
+    },
     async config(md) {
       const mathjax3 = await import('markdown-it-mathjax3')
       
@@ -124,9 +128,11 @@ export default defineConfig({
       }
     `]
   ],
+  lang: 'zh-CN', //语言，可选 en-US
   base:'/XIAOHUANG_BLOG/',
   title: "小黄同学的在线笔记",
   description: "FOR IDEA",
+  appearance: 'dark', // 默认使用夜间模式
   themeConfig: {
     outlineTitle: "目录",  // outline-显示标题
     outline:[1,6],  // outline-显示级数
@@ -152,23 +158,6 @@ export default defineConfig({
       ]},
       { text: '算法笔记', link: '/xiaohuang_mdwork/算法笔记/算法笔记主页目录.md' },
     ],
-
-    // //MD文档左侧固定目录（取消注释则开启）
-    // sidebar: [
-    //   {
-    //     text: '快速导航',
-    //     items: [
-    //       { text: '首页', link: '/' },
-    //     ]
-    //   },
-    //   {
-    //     text: '帮助中心',
-    //     items: [
-    //       { text: 'Matlab官方文档', link: 'https://www.mathworks.com/support/search.html?q=&page=1' },
-    //     ]
-    //   }
-    // ],
-
     //搜素框
     search: {
       provider: 'local',
@@ -208,5 +197,6 @@ export default defineConfig({
     footer: {
       copyright: 'Copyright © 2025-present 小黄'
     }
-  }
+  },
+  
 })

@@ -4,7 +4,7 @@
 layout: home
 
 hero:
-  name: "小黄的在线笔记"
+  name: "小黄同学的在线笔记"
   text: 偷偷看一眼
   tagline: "发现真的很好学!!!"
   image:
@@ -27,22 +27,60 @@ features:
     details: 快速获取所需的公开资料
     link: xiaohuang_mdwork/算法笔记/算法笔记主页目录.md
     
-  - title: 软件工具
+  - icon: 🖥️
+    title: 软件工具
     details: 快速获取所需的公开软件资料
-  - title: 硬件工具
+  - icon: 🛠️
+    title: 硬件工具
     details: 快速获取所需的公开软件资料
     link: xiaohuang_mdwork/硬件资料/硬件资料主页目录.md
-  - title: 数据集
+  - icon: 📁
+    title: 数据集
     details: 快速获取所需的公开数据集资料
     link: xiaohuang_mdwork/硬件工具.md
-  - title: 联系我们
+  - icon: 👥
+    title: 联系小黄
     details: 快速获取所需的公开数据集资料
     link: xiaohuang_mdwork/联系我们/联系我们.md
 
-  - title: 页面测试
+  - icon : 🔍
+    title: 页面测试
     details: 快速获取所需的公开数据集资料
     link: xiaohuang_mdwork/测试/test.md
-    
+
+---
+<!-- 人员介绍 -->
+<script setup>
+import { VPTeamMembers } from 'vitepress/theme'
+
+const members = [
+  {
+    avatar: 'https://github.com/xiaohuangstudent.png',
+    name: '小黄同学',
+    title: 'Creator',
+    links: [
+      { icon: 'github', link: 'https://github.com/xiaohuangstudent' },
+    ]
+  },
+  {
+    avatar: 'https://www.github.com/kiaking.png', 
+    name: '火柴人',
+    title: 'Developer',
+    links: [
+      { icon: 'github', link: 'XXX' },
+      { icon: 'twitter', link: 'XXX' }
+    ]
+  },
+]
+</script>
+
+<br>
+
+# 关于
+
+<VPTeamMembers size="small" :members="members" />
+
+
 
 
 
