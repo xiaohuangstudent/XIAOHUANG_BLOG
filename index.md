@@ -45,7 +45,7 @@ features:
 
   - icon : 🔍
     title: 页面测试
-    details: 快速获取所需的公开数据集资料
+    details: 用于测试的文档
     link: xiaohuang_mdwork/测试/test.md
 
 ---
