@@ -156,6 +156,9 @@ export default defineConfig({
       { text: '快速软件', items:[
         { text: 'Markdown快速导出工具', link: '/xiaohuang_mdwork/快速软件/md文档提取工具/Markdown文本自动提取软件.md' },
       ]},
+      { text: '语法笔记',items:[
+        { text: 'Python', link: '/xiaohuang_mdwork/语法笔记/Python代码语法.md' }
+      ] },
       { text: '算法笔记', link: '/xiaohuang_mdwork/算法笔记/算法笔记主页目录.md' },
     ],
     //搜素框
