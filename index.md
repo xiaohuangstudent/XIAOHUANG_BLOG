@@ -16,8 +16,8 @@ hero:
       link: xiaohuang_mdwork/算法笔记/算法笔记主页目录.md
       
     - theme: brand  #按钮
-      text: Deepseek
-      link: https://www.deepseek.com/
+      text: 论文阅读主页目录
+      link: xiaohuang_mdwork/论文阅读/论文阅读主页目录.md
 
 
 
