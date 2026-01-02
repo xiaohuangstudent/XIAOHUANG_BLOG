@@ -11,22 +11,24 @@ hero:
     src: icons/网站/智能.png
     alt: 背景图
   actions:
+    - theme: brand
+      text: 个人主页
+      link: xiaohuang_mdwork/个人主页/个人主页.md
+
     - theme: alt
       text: 算法笔记
       link: xiaohuang_mdwork/算法笔记/算法笔记主页目录.md
-      
-    - theme: brand  #按钮
+
+    - theme: brand #按钮
       text: 论文阅读主页目录
       link: xiaohuang_mdwork/论文阅读/论文阅读主页目录.md
-
-
 
 features:
   - icon: 📖
     title: 算法笔记
     details: 快速获取所需的公开资料
     link: xiaohuang_mdwork/算法笔记/算法笔记主页目录.md
-    
+
   - icon: 🖥️
     title: 软件工具
     details: 快速获取所需的公开软件资料
@@ -44,12 +46,12 @@ features:
     details: 快速获取所需的公开数据集资料
     link: xiaohuang_mdwork/联系我们/联系我们.md
 
-  - icon : 🔍
+  - icon: 🔍
     title: 页面测试
     details: 用于测试的文档
     link: xiaohuang_mdwork/测试/test.md
-
 ---
+
 <!-- 人员介绍 -->
 <script setup>
 import { VPTeamMembers } from 'vitepress/theme'
@@ -80,9 +82,3 @@ const members = [
 # 关于
 
 <VPTeamMembers size="small" :members="members" />
-
-
-
-
-
-
