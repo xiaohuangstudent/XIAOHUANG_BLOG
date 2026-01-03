@@ -8,3 +8,27 @@
 @import "var.css";
 
 /* 可以添加其他自定义样式，此文件为样式入口 */
+
+/* 图片居中对齐 */
+.vp-doc img {
+  display: block !important;
+  margin: 1rem auto !important;
+}
+
+/* 确保图片在段落内也居中 */
+.vp-doc p > img {
+  display: block !important;
+  margin: 1rem auto !important;
+}
+
+/* 表格居中对齐 */
+.vp-doc table {
+  margin: 1rem auto !important;
+  display: table !important;
+}
+
+/* 表格内容居中对齐 */
+.vp-doc table th,
+.vp-doc table td {
+  text-align: center !important;
+}
