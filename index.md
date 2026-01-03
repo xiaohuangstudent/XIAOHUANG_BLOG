@@ -52,28 +52,30 @@ features:
     link: xiaohuang_mdwork/测试/test.md
 ---
 
+<confetti />
+<HomeUnderline />
 <!-- 人员介绍 -->
 <script setup>
 import { VPTeamMembers } from 'vitepress/theme'
 
 const members = [
-  {
-    avatar: 'https://github.com/xiaohuangstudent.png',
-    name: '小黄同学',
-    title: 'Creator',
-    links: [
-      { icon: 'github', link: 'https://github.com/xiaohuangstudent' },
-    ]
-  },
-  {
-    avatar: 'https://www.github.com/kiaking.png', 
-    name: '火柴人',
-    title: 'Developer',
-    links: [
-      { icon: 'github', link: 'XXX' },
-      { icon: 'twitter', link: 'XXX' }
-    ]
-  },
+{
+avatar: 'https://github.com/xiaohuangstudent.png',
+name: '小黄同学',
+title: 'Creator',
+links: [
+{ icon: 'github', link: 'https://github.com/xiaohuangstudent' },
+]
+},
+{
+avatar: 'https://www.github.com/kiaking.png',
+name: '火柴人',
+title: 'Developer',
+links: [
+{ icon: 'github', link: 'XXX' },
+{ icon: 'twitter', link: 'XXX' }
+]
+},
 ]
 </script>
 
