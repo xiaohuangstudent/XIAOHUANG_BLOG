@@ -18,12 +18,17 @@ import "nprogress-v2/dist/index.css"; // 进度条样式
 import busuanzi from "busuanzi.pure.js" //浏览量
 import Layout from './Layout.vue'
 
+import Calculator from './components/Calculator.vue' //测试计算器
+
+
 /** @type {import('vitepress').Theme} */
 export default {
   Layout, //评论模块
   extends: DefaultTheme,
   appearance: 'dark', // 默认使用夜间模式
   enhanceApp({ app, router, siteData }) {
+    app.component('Calculator', Calculator); // 全局注册计算器组件
+
     // 切换路由进度条
     if (inBrowser) {
       NProgress.configure({ showSpinner: false });
@@ -37,6 +42,7 @@ export default {
         busuanzi.fetch();
       };
     }
+   
   },
   setup() {
     // const { frontmatter } = useData();
