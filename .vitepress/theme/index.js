@@ -19,7 +19,7 @@ import busuanzi from "busuanzi.pure.js" //浏览量
 import Layout from './Layout.vue'
 
 import Calculator from './components/Calculator.vue' //测试计算器
-
+import StatsCard from './components/StatsCard.vue' //人数统计卡片
 
 /** @type {import('vitepress').Theme} */
 export default {
@@ -28,7 +28,7 @@ export default {
   appearance: 'dark', // 默认使用夜间模式
   enhanceApp({ app, router, siteData }) {
     app.component('Calculator', Calculator); // 全局注册计算器组件
-
+    app.component('StatsCard', StatsCard); //人数统计卡片
     // 切换路由进度条
     if (inBrowser) {
       NProgress.configure({ showSpinner: false });

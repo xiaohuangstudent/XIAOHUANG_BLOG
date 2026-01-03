@@ -79,6 +79,10 @@ const members = [
 
 <br>
 
+# 浏览量
+
+<StatsCard />
+
 # 关于
 
 <VPTeamMembers size="small" :members="members" />
