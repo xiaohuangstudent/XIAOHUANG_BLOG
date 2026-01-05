@@ -68,7 +68,7 @@ links: [
 ]
 },
 {
-avatar: 'icons/头像/头像.png',
+avatar: 'https://github.com/xiaohuangstudent.png',
 name: '小黄同学在加油',
 title: 'Developer',
 links: [
