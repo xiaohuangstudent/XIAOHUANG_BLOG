@@ -68,7 +68,7 @@ links: [
 ]
 },
 {
-avatar: 'icons/头像/小黄同学头像.jpg',
+avatar: 'icons/头像/头像.png',
 name: '小黄同学在加油',
 title: 'Developer',
 links: [
