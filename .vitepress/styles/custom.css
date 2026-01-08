@@ -32,3 +32,18 @@
 .vp-doc table td {
   text-align: center !important;
 }
+
+/* 居中VPTeamMembers组件 */
+.vp-team-members-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* 或者直接针对VPTeamMembers组件 */
+.vp-team-members {
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+}
