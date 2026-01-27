@@ -4,3 +4,10 @@ npm run docs:build
 git add .
 git commit -m "补充"
 git push -u origin main
+
+LC补充epro部分:
+- <a href="./5Vto3V3线性稳压电路.epro" download>AMS1117-3.3的+5V转+3V3线性稳压电路_epro</a>
+
+<DownloadLink file="./AMS1117-3.3的+5V转+3V3线性稳压电路_epro.epro" filename="AMS1117-3.3的+5V转+3V3线性稳压电路_epro.epro">
+  📥 AMS1117-3.3的+5V转+3V3线性稳压电路_epro.epro
+</DownloadLink>

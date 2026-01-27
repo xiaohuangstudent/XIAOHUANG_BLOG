@@ -21,6 +21,7 @@ import Layout from './Layout.vue'
 import Calculator from './components/Calculator.vue' //测试计算器
 import StatsCard from './components/StatsCard.vue' //人数统计卡片
 import confetti from "./components/confetti.vue"  //五彩纸屑
+import DownloadLink from './components/DownloadLink.vue'
 
 /** @type {import('vitepress').Theme} */
 export default {
@@ -31,7 +32,8 @@ export default {
     app.component('Calculator', Calculator); // 全局注册计算器组件
     app.component('StatsCard', StatsCard); //人数统计卡片
   
-    app.component('confetti' , confetti) //五彩纸屑
+    app.component('confetti' , confetti); //五彩纸屑
+    app.component('DownloadLink',DownloadLink);
     // 切换路由进度条
     if (inBrowser) {
       NProgress.configure({ showSpinner: false });
