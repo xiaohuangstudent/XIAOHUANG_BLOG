@@ -170,6 +170,11 @@
   scrollbar-width: none;
 }
 
+.vp-doc {
+    max-width: 100% !important; /* 或者设置为你想要的宽度，例如 90% 或 1200px */
+    margin: 0 auto;
+}
+
 /* 自定义h2的间距 */
 .vp-doc h2 {
   margin: 0px 0 16px;
