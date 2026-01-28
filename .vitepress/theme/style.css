@@ -141,19 +141,28 @@
 .VPDoc .container {
   margin: 0 !important;
 }
+/* 让文档内容占满屏幕宽度，但排除首页 */
 @media (min-width: 960px) {
-  .VPDoc:not(.has-sidebar) .content {
-    max-width: 1552px !important;
+  /* 只对非首页的文档应用 */
+  .VPDoc:not(.has-sidebar):not(.is-home) .content {
+    max-width: 100% !important;
   }
-}
-.VPDoc.has-aside .content-container {
-  max-width: 1488px !important;
-}
-@media (min-width: 960px) {
-  .VPDoc:not(.has-sidebar) .container {
-    display: flex;
-    justify-content: center;
-    max-width: 1562px !important;
+  
+  /* 有侧边栏的非首页文档 */
+  .VPDoc.has-aside:not(.is-home) .content-container {
+    max-width: 100% !important;
+  }
+  
+  /* 非首页的容器 */
+  .VPDoc:not(.has-sidebar):not(.is-home) .container {
+    max-width: 100% !important;
+  }
+  
+  /* 非首页的文档内容 */
+  .VPDoc:not(.is-home) .vp-doc {
+    max-width: 100% !important;
+    padding-left: 48px !important;
+    padding-right: 48px !important;
   }
 }
 .aside-container {
@@ -170,10 +179,6 @@
   scrollbar-width: none;
 }
 
-.vp-doc {
-    max-width: 100% !important; /* 或者设置为你想要的宽度，例如 90% 或 1200px */
-    margin: 0 auto;
-}
 
 /* 自定义h2的间距 */
 .vp-doc h2 {
@@ -212,3 +217,4 @@
 .vp-doc pre[class*="language-"]::-webkit-scrollbar-thumb:hover {
   background: var(--vp-c-text-2);
 }
+
