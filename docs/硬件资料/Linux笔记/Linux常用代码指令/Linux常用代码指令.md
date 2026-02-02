@@ -1,4 +1,5 @@
 # Linux常用代码指令
+
 ## 基础指令
 
 - 打开终端
@@ -139,4 +140,20 @@ BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
 PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
 UBUNTU_CODENAME=noble
 LOGO=ubuntu-logo
+```
+
+关机、重启
+
+```
+sudo poweroff
+sudo reboot
+```
+
+查看系统使用
+
+```
+#gpu温度
+vcgencmd measure_temp
+#gpu用度
+vcgencmd get_mem gpu
 ```
