@@ -43,3 +43,13 @@ git status
 # 4. 现在你的修改都回来了，但还在暂存区
 # 如果你需要重新组织提交，可以重置暂存区
 git reset
+
+# 5. 选择性添加文件（避免大文件）
+git add "上传帮助/uploadcode.txt"
+# 添加其他需要的文件，但不添加大文件
+
+# 6. 提交
+git commit -m "恢复修改并清理"
+
+# 7. 推送
+git push origin main
