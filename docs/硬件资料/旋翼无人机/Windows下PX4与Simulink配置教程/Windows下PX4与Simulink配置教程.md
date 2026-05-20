@@ -110,7 +110,3 @@ px4_simulink_app start
 3. Simulink模型中每个 `uORB Read` 后接 `Bus Selector` 提取具体信号。
 4. 设置固定步长0.01s，选择 `Monitor & Tune` 模式，指定正确COM口。
 5. 烧录一次，以后调参可直接在Simulink中改Gain值实时生效。
-
-你现在已经完全走通了从“编译固件”到“实时读取姿态”的完整链路。下一步可以基于这些数据设计你自己的控制器（将控制输出写入 `actuator_controls_0` 等主题）。
-
-如果还有任何细节不清楚，随时告诉我，我可以针对某个环节再展开讲解。
