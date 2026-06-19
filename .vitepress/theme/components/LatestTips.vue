@@ -9,7 +9,7 @@
         href="/XIAOHUANG_BLOG/xiaohuang_mdwork/UpdataTips/UpdataList"
         class="badge badge-link"
       >
-        点击此处查看所有咨询
+        点击此处查看所有资讯
       </a>
     </div>
 

@@ -9,6 +9,7 @@
 
 > [!Tip]
 > 新增ROS2的教程笔记
+> 链接为 [ROS2基础](/docs/软件资料/编程资料/ROS2基础/ROS笔记.md)
 
 ## 2026-06-18 新增旋翼无人机的PX4和Ubuntu的配置文档，主要包含Orangepi5B的使用、mid360的驱动、fastlio2的配置等相关内容
 
