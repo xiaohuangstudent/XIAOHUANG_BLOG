@@ -1,4 +1,4 @@
-import "./chunk-JVWSFFO4.js";
+import "./chunk-L6OFPWCY.js";
 
 // node_modules/canvas-confetti/dist/confetti.module.mjs
 var module = {};

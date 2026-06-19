@@ -23,6 +23,9 @@ import StatsCard from './components/StatsCard.vue' //人数统计卡片
 import confetti from "./components/confetti.vue"  //五彩纸屑
 import DownloadLink from './components/DownloadLink.vue'
 
+import LatestTips from './components/LatestTips.vue' //最新更新提示组件
+
+
 /** @type {import('vitepress').Theme} */
 export default {
   Layout, //评论模块
@@ -34,6 +37,9 @@ export default {
   
     app.component('confetti' , confetti); //五彩纸屑
     app.component('DownloadLink',DownloadLink);
+
+    app.component('LatestTips', LatestTips);
+    
     // 切换路由进度条
     if (inBrowser) {
       NProgress.configure({ showSpinner: false });

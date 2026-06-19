@@ -74,6 +74,12 @@ links: [
 
 <br>
 
+# 最新动态
+
+<LatestTips />
+
+<br>
+
 # 关于
 
 <div class="vp-team-members-container">
