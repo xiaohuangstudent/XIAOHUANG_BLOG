@@ -1,5 +1,282 @@
 # PX4 Ubuntu教程
 
+Ubuntu版本22.04、ROS2、PX4版本1.15.4
+
+## Ubuntu安装QGC教程
+
+参考：https://docs.qgroundcontrol.com/Stable_V5.0/en/qgc-user-guide/getting_started/download_and_install.html
+
+## Ubuntu Linux
+
+支持版本：Ubuntu 22.04、24.04：
+
+Ubuntu自带串口调制解调器管理器，会干扰机器人相关串口（或USB串口）的使用。安装*QGroundControl*之前，你应该卸下调制解调器管理器，并授权自己访问串口。你还需要安装*GStreamer*，才能支持视频流。
+
+在首次安装*QGroundControl*之前：
+
+1. 在命令提示符中输入：
+
+   ```cmd
+   sudo usermod -a -G dialout $USER
+   sudo apt-get remove modemmanager -y
+   sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl -y
+   sudo apt install libfuse2 -y
+   sudo apt install libxcb-xinerama0 libxkbcommon-x11-0 libxcb-cursor-dev -y
+   ```
+
+2. 登出后再次登录以启用用户权限的更改。
+
+安装*QGroundControl*：
+
+1. 下载[QGroundControl-x86_64.AppImage](https://d176tv9ibo4jno.cloudfront.net/latest/QGroundControl-x86_64.AppImage)。
+
+2. 使用终端命令安装（并运行）：
+
+   ```cmd
+   chmod +x ./QGroundControl-x86_64.AppImage
+   ./QGroundControl-x86_64.AppImage  (or double click)
+   ```
+
+## Ubuntu安装PX4相关环境教程
+
+参考教程：[Ubuntu搭建PX4无人机仿真环境(5) —— 仿真环境搭建(以Ubuntu 22.04,ROS2 Humble,Micro XRCE-DDS Agent为例)_px4仿真环境搭建-CSDN博客](https://blog.csdn.net/weixin_55944949/article/details/140627640?spm=1001.2014.3001.5502)
+
+### 安装PX4源码与版本指定
+
+```
+git clone https://github.com/PX4/PX4-Autopilot.git
+mv PX4-Autopilot PX4_Firmware  # 更改目录名
+cd PX4_Firmware
+git checkout v1.15.4
+git submodule update --init --recursive --force
+make px4_sitl_default  #编译 SITL 仿真固件
+make px4_fmu-v5_default  #编译pixhawk4固件
+
+```
+
+### ROS2安装教程
+
+参考：[小鱼的一键安装系列 | 鱼香ROS](https://fishros.org.cn/forum/topic/20/小鱼的一键安装系列)
+
+```
+wget http://fishros.com/install -O fishros && . fishros
+```
+
+### Gazebo教程
+
+测试
+
+```
+gz sim
+```
+
+> [!Tip]
+>
+> **gazebo渲染失败的问题**
+>
+> 参考：[Vmware虚拟机ROS2中的gazebo界面不显示或者闪退_gazebo harmonic闪退-CSDN博客](https://blog.csdn.net/m0_73822937/article/details/149115237?ops_request_misc=elastic_search_misc&request_id=14a54929136cd484287dee39c1f371ac&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-149115237-null-null.142^v102^pc_search_result_base7&utm_term=虚拟机gazebo闪退&spm=1018.2226.3001.4187)
+>
+> 使用下面的命令强制使用ogre渲染：
+>
+> ```sql
+> gz sim --render-engine ogre
+> ```
+>
+> **对于运行`make px4_sitl gz_x500`带来的闪退：**
+>
+> ```cmd
+> PX4_GZ_SIM_RENDER_ENGINE=ogre make px4_sitl gz_x500
+> ```
+
+### MAVROS安装
+
+下载两个源码
+
+```
+cd ~/ros2_ws/src
+git clone https://github.com/PX4/px4_msgs.git
+git clone https://github.com/PX4/px4_ros_com.git
+```
+
+安装MAVROS
+
+```
+sudo apt update
+sudo apt install --fix-missing
+sudo apt install -y ros-humble-mavros ros-humble-mavros-extras
+wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/install_geographiclib_datasets.sh
+sudo bash ./install_geographiclib_datasets.sh
+```
+
+### Offboard示例
+
+在解决了 MAVROS 的安装后，创建工作空间并生成节点
+
+```cmd
+# 创建工作空间（如果已存在可以跳过）
+mkdir -p ~/px4_ros2_ws/src
+cd ~/px4_ros2_ws/src
+
+# 创建 Python 包（注意是 ament_python）
+ros2 pkg create --build-type ament_python px4_offboard \
+    --dependencies rclpy geometry_msgs std_msgs mavros_msgs
+```
+
+进入包目录，修改 `px4_offboard/px4_offboard/offboard_control.py`（你需要创建该文件）：
+
+```
+cd ~/px4_ros2_ws/src/px4_offboard/px4_offboard
+touch offboard_control.py
+chmod +x offboard_control.py
+```
+
+把以下代码粘贴进去：
+
+```python
+#!/usr/bin/env python3
+
+import rclpy
+from rclpy.node import Node
+from geometry_msgs.msg import PoseStamped
+from mavros_msgs.msg import State
+from mavros_msgs.srv import CommandBool, SetMode
+
+class OffboardControl(Node):
+    def __init__(self):
+        super().__init__('offboard_control')
+        
+        # 发布位置设定点
+        self.pub_pos = self.create_publisher(PoseStamped, '/mavros/setpoint_position/local', 10)
+        
+        # 订阅当前状态（用于判断是否已进入 offboard 模式）
+        self.sub_state = self.create_subscription(State, '/mavros/state', self.state_callback, 10)
+        
+        # 服务客户端：解锁/加锁
+        self.arm_srv = self.create_client(CommandBool, '/mavros/cmd/arming')
+        # 服务客户端：切换模式
+        self.mode_srv = self.create_client(SetMode, '/mavros/set_mode')
+        
+        # 等待服务可用
+        while not self.arm_srv.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('等待 arming 服务...')
+        while not self.mode_srv.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('等待 set_mode 服务...')
+        
+        # 定时发布位置指令（20Hz）
+        self.timer = self.create_timer(0.05, self.timer_callback)
+        
+        # 状态变量
+        self.current_state = None
+        self.offboard_set = False
+        self.armed = False
+        
+        # 目标位置（悬停于起飞点上方 5 米）
+        self.target_pose = PoseStamped()
+        self.target_pose.header.frame_id = 'map'
+        self.target_pose.pose.position.x = 0.0
+        self.target_pose.pose.position.y = 0.0
+        self.target_pose.pose.position.z = 5.0
+        self.target_pose.pose.orientation.w = 1.0  # 无旋转
+
+    def state_callback(self, msg):
+        self.current_state = msg
+
+    def timer_callback(self):
+        # 1. 不断发布位置设定点（必须持续发送，否则 offboard 模式会超时终止）
+        self.target_pose.header.stamp = self.get_clock().now().to_msg()
+        self.pub_pos.publish(self.target_pose)
+
+        # 2. 如果还没进入 offboard 模式，尝试切换
+        if self.current_state is not None:
+            if not self.offboard_set and self.current_state.mode != 'OFFBOARD':
+                mode_req = SetMode.Request()
+                mode_req.custom_mode = 'OFFBOARD'
+                future = self.mode_srv.call_async(mode_req)
+                future.add_done_callback(self.mode_callback)
+                
+            # 3. 如果已经进入 offboard 但还未解锁，尝试解锁
+            if self.current_state.mode == 'OFFBOARD' and not self.armed:
+                arm_req = CommandBool.Request()
+                arm_req.value = True
+                future = self.arm_srv.call_async(arm_req)
+                future.add_done_callback(self.arm_callback)
+
+    def mode_callback(self, future):
+        try:
+            response = future.result()
+            if response.mode_sent:
+                self.offboard_set = True
+                self.get_logger().info('模式切换成功：OFFBOARD')
+            else:
+                self.get_logger().warn('模式切换失败')
+        except Exception as e:
+            self.get_logger().error(f'模式切换异常: {e}')
+
+    def arm_callback(self, future):
+        try:
+            response = future.result()
+            if response.success:
+                self.armed = True
+                self.get_logger().info('解锁成功！')
+            else:
+                self.get_logger().warn('解锁失败')
+        except Exception as e:
+            self.get_logger().error(f'解锁异常: {e}')
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = OffboardControl()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+```
+
+修改 setup.py 添加入口点：编辑 `~/px4_ros2_ws/src/px4_offboard/setup.py`，在 `entry_points` 中增加：
+
+```python
+entry_points={
+    'console_scripts': [
+        'offboard_control = px4_offboard.offboard_control:main',
+    ],
+},
+```
+
+编译并运行
+
+```cmd
+cd ~/px4_ros2_ws
+colcon build --symlink-install
+source install/setup.bash
+```
+
+完成上述步骤后，分别开三个终端
+
+- 终端1：启动 PX4 SITL + Gazebo
+
+  ```cmd
+  cd ~/PX4-Autopilot   # 你存放 PX4 源码的位置
+  PX4_GZ_SIM_RENDER_ENGINE=ogre make px4_sitl gz_x500
+  ```
+
+- 终端2：启动 MAVROS
+
+  ```cmd
+  source /opt/ros/humble/setup.bash
+  ros2 launch mavros px4.launch.py fcu_url:="udp://:14540@127.0.0.1:14557"
+  ```
+
+- 终端3：运行 offboard 控制节点
+
+  ```cmd
+  source ~/px4_ros2_ws/install/setup.bash
+  ros2 run px4_offboard offboard_control
+  ```
+
+  
+
 ## mid360教程
 
 mid360快速使用指南： [Livox_Mid-360_Quick_Start_Guide_multi.pdf](PX4_Ubuntu教程.assets\Livox_Mid-360_Quick_Start_Guide_multi.pdf) 
