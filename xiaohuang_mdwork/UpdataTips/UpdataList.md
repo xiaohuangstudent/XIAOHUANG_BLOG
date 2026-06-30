@@ -27,3 +27,8 @@
 
 > [!Tip]
 > 删除了快速软件与其下的Markdown快速导出工具
+
+## 2026-06-30 新增Github SSH配置教程
+
+> [!Tip]
+> 新增Github SSH配置教程，链接为 [Github SSH配置教程](/docs/软件资料/编程资料/Linux相关/GithubSSH配置教程/GithubSSH配置教程.md)

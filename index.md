@@ -93,8 +93,3 @@ links: [
 <StatsCard />
 
 <br>
-
-# Tips
-
-> [!Tip]
-> 可以在顶端的前端导航界面下给我留言哦！
