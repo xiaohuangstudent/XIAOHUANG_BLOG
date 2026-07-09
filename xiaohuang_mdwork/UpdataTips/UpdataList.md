@@ -35,3 +35,8 @@
 
 > [!Tip]
 > 新增PX4_egoplanner_ROS2教程，链接为 [PX4_egoplanner_ROS2教程](/docs/硬件资料/旋翼无人机/PX4_egoplanner_ROS2教程/PX4_egoplanner_ROS2教程.md)
+
+## 2026-07-09 新增强化学习算法总览笔记
+
+> [!Tip]
+> 新增强化学习算法总览笔记，目前包含Sarsa,Q-learning,Dyna-Q,DQN,Double-DQN,Dueling-DQN,策略梯度算法,A2C,TRPO,PPO。链接为 [强化学习总览](/docs/算法笔记/强化学习算法/强化学习算法总览/强化学习算法总览.md)
