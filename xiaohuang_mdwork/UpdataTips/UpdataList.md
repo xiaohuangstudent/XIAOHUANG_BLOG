@@ -40,3 +40,8 @@
 
 > [!Tip]
 > 新增强化学习算法总览笔记，目前包含Sarsa,Q-learning,Dyna-Q,DQN,Double-DQN,Dueling-DQN,策略梯度算法,A2C,TRPO,PPO。链接为 [强化学习总览](/docs/算法笔记/强化学习算法/强化学习算法总览/强化学习算法总览.md)
+
+## 2026-07-14 新增前端导航pdftranslator
+
+> [!Tip]
+> 新增前端导航pdftranslator，链接为 [Free PDF Translator Online (AI-Powered) | PDFTranslator.org](https://pdftranslator.org/)
