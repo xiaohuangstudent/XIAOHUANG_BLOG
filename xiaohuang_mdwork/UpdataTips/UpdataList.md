@@ -45,3 +45,14 @@
 
 > [!Tip]
 > 新增前端导航pdftranslator，链接为 [Free PDF Translator Online (AI-Powered) | PDFTranslator.org](https://pdftranslator.org/)
+
+## 2026-08-14 新增ROS2详细教程
+
+> [!Tip]
+> 新增Part1_ROS2工作空间、功能包，链接为 [Part1_ROS2工作空间、功能包](/docs/软件资料/编程资料/ROS2基础/ROS2详细笔记/Part1_ROS2工作空间与功能包.md)
+>
+> 新增Part2_ROS2节点、话题、服务、动作、接口、Launch文件、TF变换，链接为 [Part2_ROS2节点、话题、服务、动作、接口、Launch文件、TF变换](/docs/软件资料/编程资料/ROS2基础/ROS2详细笔记/Part2_ROS2节点话题服务接口launchTF.md)
+>
+> 新增Part3\_元功能包、DDS，链接为[Part3\_元功能包、DDS](/docs/软件资料/编程资料/ROS2基础/ROS2详细笔记/Part3_ROS2元功能包DDS.md)
+>
+> 新增Part4_ROS2的时间API、常用命令、Rviz2、Rqt、bag、URDF、Gazebo，链接为[Part4_ROS2的时间API、常用命令、Rviz2、Rqt、bag、URDF、Gazebo](/docs/软件资料/编程资料/ROS2基础/ROS2详细笔记/Part4_ROS2API.md)

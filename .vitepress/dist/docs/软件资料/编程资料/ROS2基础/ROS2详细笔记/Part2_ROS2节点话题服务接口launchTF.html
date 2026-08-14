@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ROS2节点 | 小黄同学的在线笔记</title>
+    <meta name="description" content="FOR IDEA">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/XIAOHUANG_BLOG/assets/style.DcZY83KP.css" as="style">
+    <link rel="preload stylesheet" href="/XIAOHUANG_BLOG/vp-icons.css" as="style">
+    
+    <script type="module" src="/XIAOHUANG_BLOG/assets/app.l1rldpKp.js"></script>
+    <link rel="preload" href="/XIAOHUANG_BLOG/assets/inter-roman-latin.Di8DUHzh.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="modulepreload" href="/XIAOHUANG_BLOG/assets/chunks/theme.29J55wNZ.js">
+    <link rel="modulepreload" href="/XIAOHUANG_BLOG/assets/chunks/framework.PZCYvDoh.js">
+    <link rel="modulepreload" href="/XIAOHUANG_BLOG/assets/docs_软件资料_编程资料_ROS2基础_ROS2详细笔记_Part2_ROS2节点话题服务接口launchTF.md.Dc_cPlqY.lean.js">
+    <link rel="icon" href="/XIAOHUANG_BLOG/icons/网站/笔记本.svg">
+    <style>
+      /* 标题自动编号 */
+      .vp-doc h2 {
+        counter-increment: h2;
+        counter-reset: h3;
+      }
+      
+      .vp-doc h2:before {
+        content: counter(h2) ". ";
+        font-weight: bold;
+      }
+      
+      .vp-doc h3 {
+        counter-increment: h3;
+        counter-reset: h4;
+      }
+      
+      .vp-doc h3:before {
+        content: counter(h2) "." counter(h3) ". ";
+        font-weight: bold;
+      }
+      
+      .vp-doc h4 {
+        counter-increment: h4;
+       
+        counter-reset: h5;
+      }
+      
+      .vp-doc h4:before {
+        content: counter(h2) "." counter(h3) "." counter(h4) ". ";
+        font-weight: bold;
+      }
+      
+      .vp-doc h5 {
+        counter-increment: h5;
+        counter-reset: h6;
+      }
+      
+      .vp-doc h5:before {
+        content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". ";
+        font-weight: bold;
+      }
+      
+      .vp-doc h6 {
+        counter-increment: h6;
+      }
+      
+      .vp-doc h6:before {
+        content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". ";
+        font-weight: bold;
+      }
+      
+      /* 重置一级标题的计数器 */
+      .vp-doc {
+        counter-reset: h2;
+      }
+    </style>
+    <script id="check-dark-mode">(()=>{const e=localStorage.getItem("vitepress-theme-appearance")||"dark",a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div class="Layout" data-v-d8b57b2d><!--[--><!--]--><!--[--><span tabindex="-1" data-v-fcbfc0e0></span><a href="#VPContent" class="VPSkipLink visually-hidden" data-v-fcbfc0e0>Skip to content</a><!--]--><!----><header class="VPNav" data-v-d8b57b2d data-v-7ad780c2><div class="VPNavBar" data-v-7ad780c2 data-v-9fd4d1dd><div class="wrapper" data-v-9fd4d1dd><div class="container" data-v-9fd4d1dd><div class="title" data-v-9fd4d1dd><div class="VPNavBarTitle" data-v-9fd4d1dd data-v-9f43907a><a class="title" href="/XIAOHUANG_BLOG/" data-v-9f43907a><!--[--><!--]--><!--[--><img class="VPImage logo" src="/XIAOHUANG_BLOG/icons/网站/笔记本.png" alt data-v-ab19afbb><!--]--><span data-v-9f43907a>小黄同学的在线笔记</span><!--[--><!--]--></a></div></div><div class="content" data-v-9fd4d1dd><div class="content-body" data-v-9fd4d1dd><!--[--><!--]--><div class="VPNavBarSearch search" data-v-9fd4d1dd><!--[--><!----><div id="local-search"><button type="button" class="DocSearch DocSearch-Button" aria-label="搜索文档"><span class="DocSearch-Button-Container"><span class="vp-icon DocSearch-Search-Icon"></span><span class="DocSearch-Button-Placeholder">搜索文档</span></span><span class="DocSearch-Button-Keys"><kbd class="DocSearch-Button-Key"></kbd><kbd class="DocSearch-Button-Key">K</kbd></span></button></div><!--]--></div><nav aria-labelledby="main-nav-aria-label" class="VPNavBarMenu menu" data-v-9fd4d1dd data-v-afb2845e><span id="main-nav-aria-label" class="visually-hidden" data-v-afb2845e> Main Navigation </span><!--[--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/XIAOHUANG_BLOG/" tabindex="0" data-v-afb2845e data-v-815115f5><!--[--><span data-v-815115f5>首页</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/XIAOHUANG_BLOG/xiaohuang_mdwork/%E5%89%8D%E7%AB%AF%E5%AF%BC%E8%88%AA/%E5%89%8D%E7%AB%AF%E5%AF%BC%E8%88%AA%E7%9B%AE%E5%BD%95.html" tabindex="0" data-v-afb2845e data-v-815115f5><!--[--><span data-v-815115f5>前端导航</span><!--]--></a><!--]--><!--[--><div class="VPFlyout VPNavBarMenuGroup" data-v-afb2845e data-v-bfe7971f><button type="button" class="button" aria-haspopup="true" aria-expanded="false" data-v-bfe7971f><span class="text" data-v-bfe7971f><!----><span data-v-bfe7971f>功能网站</span><span class="vpi-chevron-down text-icon" data-v-bfe7971f></span></span></button><div class="menu" data-v-bfe7971f><div class="VPMenu" data-v-bfe7971f data-v-20ed86d6><div class="items" data-v-20ed86d6><!--[--><!--[--><div class="VPMenuLink" data-v-20ed86d6 data-v-7eeeb2dc><a class="VPLink link vp-external-link-icon" href="https://cdkm.com/cn/svg-to-ico" target="_blank" rel="noreferrer" data-v-7eeeb2dc><!--[--><span data-v-7eeeb2dc>svg转icon</span><!--]--></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-20ed86d6 data-v-7eeeb2dc><a class="VPLink link vp-external-link-icon" href="https://www.iconfont.cn/" target="_blank" rel="noreferrer" data-v-7eeeb2dc><!--[--><span data-v-7eeeb2dc>阿里icon库</span><!--]--></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-20ed86d6 data-v-7eeeb2dc><a class="VPLink link vp-external-link-icon" href="https://pixabay.com/zh/" target="_blank" rel="noreferrer" data-v-7eeeb2dc><!--[--><span data-v-7eeeb2dc>高保真图</span><!--]--></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-20ed86d6 data-v-7eeeb2dc><a class="VPLink link vp-external-link-icon" href="https://docs.bugdesigner.cn/README.html#%E9%83%A8%E7%BD%B2%E6%AD%A5%E9%AA%A4" target="_blank" rel="noreferrer" data-v-7eeeb2dc><!--[--><span data-v-7eeeb2dc>建站速通</span><!--]--></a></div><!--]--><!--]--></div><!--[--><!--]--></div></div></div><!--]--><!--[--><div class="VPFlyout VPNavBarMenuGroup" data-v-afb2845e data-v-bfe7971f><button type="button" class="button" aria-haspopup="true" aria-expanded="false" data-v-bfe7971f><span class="text" data-v-bfe7971f><!----><span data-v-bfe7971f>语法笔记</span><span class="vpi-chevron-down text-icon" data-v-bfe7971f></span></span></button><div class="menu" data-v-bfe7971f><div class="VPMenu" data-v-bfe7971f data-v-20ed86d6><div class="items" data-v-20ed86d6><!--[--><!--[--><div class="VPMenuLink" data-v-20ed86d6 data-v-7eeeb2dc><a class="VPLink link" href="/XIAOHUANG_BLOG/xiaohuang_mdwork/%E8%AF%AD%E6%B3%95%E7%AC%94%E8%AE%B0/Python%E4%BB%A3%E7%A0%81%E8%AF%AD%E6%B3%95.html" data-v-7eeeb2dc><!--[--><span data-v-7eeeb2dc>Python</span><!--]--></a></div><!--]--><!--]--></div><!--[--><!--]--></div></div></div><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/XIAOHUANG_BLOG/xiaohuang_mdwork/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E4%B8%BB%E9%A1%B5%E7%9B%AE%E5%BD%95.html" tabindex="0" data-v-afb2845e data-v-815115f5><!--[--><span data-v-815115f5>算法笔记</span><!--]--></a><!--]--><!--]--></nav><!----><div class="VPNavBarAppearance appearance" data-v-9fd4d1dd data-v-3f90c1a5><button class="VPSwitch VPSwitchAppearance" type="button" role="switch" title aria-checked="true" data-v-3f90c1a5 data-v-be9742d9 data-v-b4ccac88><span class="check" data-v-b4ccac88><span class="icon" data-v-b4ccac88><!--[--><span class="vpi-sun sun" data-v-be9742d9></span><span class="vpi-moon moon" data-v-be9742d9></span><!--]--></span></span></button></div><div class="VPSocialLinks VPNavBarSocialLinks social-links" data-v-9fd4d1dd data-v-ef6192dc data-v-e71e869c><!--[--><a class="VPSocialLink no-icon" href="mailto:2727678986@qq.com" aria-label="发送邮件" target="_blank" rel="noopener" data-v-e71e869c data-v-60a9a2d3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a><a class="VPSocialLink no-icon" href="https://github.com/xiaohuangstudent" aria-label="github" target="_blank" rel="noopener" data-v-e71e869c data-v-60a9a2d3><span class="vpi-social-github"></span></a><a class="VPSocialLink no-icon" href="https://space.bilibili.com/3493126956124793?spm_id_from=333.788.0.0" aria-label target="_blank" rel="noopener" data-v-e71e869c data-v-60a9a2d3><svg t="1751117659737" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1503" width="64" height="64"><path d="M729.32864 373.94944c-9.79456-5.94432-19.06176-6.784-19.14368-6.784l-1.06496-0.0512c-57.20064-3.8656-121.1648-5.83168-190.12608-5.83168l-13.98784 0.00512c-68.95616 0-132.92544 1.96096-190.12096 5.83168l-1.06496 0.0512c-0.08192 0-9.34912 0.83968-19.14368 6.784-15.04768 9.12896-24.27392 25.94816-27.4176 49.9712-10.07104 76.91264-4.38272 173.64992 0.18944 251.392 2.93888 49.96608 33.408 62.45888 85.04832 67.1488 10.78272 0.98816 69.08928 5.86752 159.50848 5.89312v-0.00512c90.4192-0.02048 148.72576-4.90496 159.5136-5.888 51.64032-4.68992 82.10944-17.18272 85.0432-67.1488 4.57728-77.74208 10.26048-174.47936 0.18944-251.392-3.1488-24.02816-12.37504-40.84736-27.42272-49.97632z m-390.9888 172.71808a23.64928 23.64928 0 0 1-31.68768-10.84416 23.68 23.68 0 0 1 10.84416-31.68768c2.03776-1.00352 50.69312-24.72448 110.5408-43.06432a23.68 23.68 0 1 1 13.88032 45.29152c-56.2944 17.24928-103.11168 40.07424-103.5776 40.30464z m268.89728 35.88608c-0.44032 2.23232-11.26912 54.64064-50.93888 54.64064-21.44256 0-36.10112-14.04928-44.98432-26.77248-8.69376 12.70784-22.80448 26.77248-42.65472 26.77248-35.5328 0-50.13504-48.26624-51.68128-53.77024a11.3664 11.3664 0 0 1 21.87776-6.1696c2.74944 9.6512 14.1312 37.20192 29.7984 37.20192 16.37376 0 28.89216-23.64416 31.98464-31.92832a11.37152 11.37152 0 0 1 10.6496-7.38816h0.06144c4.76672 0.03072 9.0112 3.02592 10.62912 7.50592 0.10752 0.28672 11.96544 31.81568 34.31424 31.81568 20.864 0 28.56448-35.95264 28.64128-36.32128a11.34592 11.34592 0 0 1 13.35808-8.93952 11.36128 11.36128 0 0 1 8.94464 13.35296z m110.11584-46.73536a23.68 23.68 0 0 1-31.68256 10.84416c-0.47104-0.2304-47.47264-23.1168-103.57248-40.30976a23.69024 23.69024 0 0 1-15.70816-29.58336 23.66976 23.66976 0 0 1 29.57824-15.70304c59.84768 18.33984 108.49792 42.0608 110.55104 43.06432a23.68 23.68 0 0 1 10.83392 31.68768z" fill="#F16C8D" p-id="1504"></path><path d="M849.92 51.2H174.08c-67.8656 0-122.88 55.0144-122.88 122.88v675.84c0 67.87072 55.0144 122.88 122.88 122.88h675.84c67.87072 0 122.88-55.00928 122.88-122.88V174.08c0-67.86048-55.00928-122.88-122.88-122.88z m-36.60288 627.45088c-2.62656 44.57984-21.82144 78.63296-55.51616 98.48832-25.68192 15.13472-54.17472 19.48672-81.13664 21.9392-32.45568 2.94912-92.71808 6.09792-164.66432 6.1184-71.94112-0.02048-132.20864-3.16416-164.66432-6.1184-26.96192-2.45248-55.45472-6.80448-81.13152-21.9392-33.69472-19.85536-52.8896-53.90336-55.51104-98.4832-4.70528-80.13312-10.5728-179.85536 0.19456-262.10816C221.5424 335.16544 280.99072 311.57248 311.5008 310.37952a2482.64192 2482.64192 0 0 1 81.42336-4.08576c-7.53664-8.53504-19.88096-23.3216-28.81536-38.11328-13.73696-22.73792 8.52992-41.68704 8.52992-41.68704s23.68-20.36736 44.52864 5.21216c15.69792 19.26656 38.37952 55.99744 48.61952 72.95488l53.20704-0.21504c13.2608 0 26.33216 0.07168 39.2192 0.21504 10.24-16.95744 32.9216-53.6832 48.61952-72.95488 20.84352-25.57952 44.52864-5.21216 44.52864-5.21216s22.26176 18.94912 8.5248 41.68704c-8.9344 14.79168-21.27872 29.57824-28.81536 38.11328 28.35968 0.97792 55.56224 2.33984 81.42336 4.08064 30.5152 1.19808 89.9584 24.79104 100.61312 106.17344 10.7776 82.24768 4.9152 181.96992 0.20992 262.10304z" fill="#F16C8D" p-id="1505"></path></svg></a><!--]--></div><div class="VPFlyout VPNavBarExtra extra" data-v-9fd4d1dd data-v-f953d92f data-v-bfe7971f><button type="button" class="button" aria-haspopup="true" aria-expanded="false" aria-label="extra navigation" data-v-bfe7971f><span class="vpi-more-horizontal icon" data-v-bfe7971f></span></button><div class="menu" data-v-bfe7971f><div class="VPMenu" data-v-bfe7971f data-v-20ed86d6><!----><!--[--><!--[--><!----><div class="group" data-v-f953d92f><div class="item appearance" data-v-f953d92f><p class="label" data-v-f953d92f>Appearance</p><div class="appearance-action" data-v-f953d92f><button class="VPSwitch VPSwitchAppearance" type="button" role="switch" title aria-checked="true" data-v-f953d92f data-v-be9742d9 data-v-b4ccac88><span class="check" data-v-b4ccac88><span class="icon" data-v-b4ccac88><!--[--><span class="vpi-sun sun" data-v-be9742d9></span><span class="vpi-moon moon" data-v-be9742d9></span><!--]--></span></span></button></div></div></div><div class="group" data-v-f953d92f><div class="item social-links" data-v-f953d92f><div class="VPSocialLinks social-links-list" data-v-f953d92f data-v-e71e869c><!--[--><a class="VPSocialLink no-icon" href="mailto:2727678986@qq.com" aria-label="发送邮件" target="_blank" rel="noopener" data-v-e71e869c data-v-60a9a2d3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a><a class="VPSocialLink no-icon" href="https://github.com/xiaohuangstudent" aria-label="github" target="_blank" rel="noopener" data-v-e71e869c data-v-60a9a2d3><span class="vpi-social-github"></span></a><a class="VPSocialLink no-icon" href="https://space.bilibili.com/3493126956124793?spm_id_from=333.788.0.0" aria-label target="_blank" rel="noopener" data-v-e71e869c data-v-60a9a2d3><svg t="1751117659737" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1503" width="64" height="64"><path d="M729.32864 373.94944c-9.79456-5.94432-19.06176-6.784-19.14368-6.784l-1.06496-0.0512c-57.20064-3.8656-121.1648-5.83168-190.12608-5.83168l-13.98784 0.00512c-68.95616 0-132.92544 1.96096-190.12096 5.83168l-1.06496 0.0512c-0.08192 0-9.34912 0.83968-19.14368 6.784-15.04768 9.12896-24.27392 25.94816-27.4176 49.9712-10.07104 76.91264-4.38272 173.64992 0.18944 251.392 2.93888 49.96608 33.408 62.45888 85.04832 67.1488 10.78272 0.98816 69.08928 5.86752 159.50848 5.89312v-0.00512c90.4192-0.02048 148.72576-4.90496 159.5136-5.888 51.64032-4.68992 82.10944-17.18272 85.0432-67.1488 4.57728-77.74208 10.26048-174.47936 0.18944-251.392-3.1488-24.02816-12.37504-40.84736-27.42272-49.97632z m-390.9888 172.71808a23.64928 23.64928 0 0 1-31.68768-10.84416 23.68 23.68 0 0 1 10.84416-31.68768c2.03776-1.00352 50.69312-24.72448 110.5408-43.06432a23.68 23.68 0 1 1 13.88032 45.29152c-56.2944 17.24928-103.11168 40.07424-103.5776 40.30464z m268.89728 35.88608c-0.44032 2.23232-11.26912 54.64064-50.93888 54.64064-21.44256 0-36.10112-14.04928-44.98432-26.77248-8.69376 12.70784-22.80448 26.77248-42.65472 26.77248-35.5328 0-50.13504-48.26624-51.68128-53.77024a11.3664 11.3664 0 0 1 21.87776-6.1696c2.74944 9.6512 14.1312 37.20192 29.7984 37.20192 16.37376 0 28.89216-23.64416 31.98464-31.92832a11.37152 11.37152 0 0 1 10.6496-7.38816h0.06144c4.76672 0.03072 9.0112 3.02592 10.62912 7.50592 0.10752 0.28672 11.96544 31.81568 34.31424 31.81568 20.864 0 28.56448-35.95264 28.64128-36.32128a11.34592 11.34592 0 0 1 13.35808-8.93952 11.36128 11.36128 0 0 1 8.94464 13.35296z m110.11584-46.73536a23.68 23.68 0 0 1-31.68256 10.84416c-0.47104-0.2304-47.47264-23.1168-103.57248-40.30976a23.69024 23.69024 0 0 1-15.70816-29.58336 23.66976 23.66976 0 0 1 29.57824-15.70304c59.84768 18.33984 108.49792 42.0608 110.55104 43.06432a23.68 23.68 0 0 1 10.83392 31.68768z" fill="#F16C8D" p-id="1504"></path><path d="M849.92 51.2H174.08c-67.8656 0-122.88 55.0144-122.88 122.88v675.84c0 67.87072 55.0144 122.88 122.88 122.88h675.84c67.87072 0 122.88-55.00928 122.88-122.88V174.08c0-67.86048-55.00928-122.88-122.88-122.88z m-36.60288 627.45088c-2.62656 44.57984-21.82144 78.63296-55.51616 98.48832-25.68192 15.13472-54.17472 19.48672-81.13664 21.9392-32.45568 2.94912-92.71808 6.09792-164.66432 6.1184-71.94112-0.02048-132.20864-3.16416-164.66432-6.1184-26.96192-2.45248-55.45472-6.80448-81.13152-21.9392-33.69472-19.85536-52.8896-53.90336-55.51104-98.4832-4.70528-80.13312-10.5728-179.85536 0.19456-262.10816C221.5424 335.16544 280.99072 311.57248 311.5008 310.37952a2482.64192 2482.64192 0 0 1 81.42336-4.08576c-7.53664-8.53504-19.88096-23.3216-28.81536-38.11328-13.73696-22.73792 8.52992-41.68704 8.52992-41.68704s23.68-20.36736 44.52864 5.21216c15.69792 19.26656 38.37952 55.99744 48.61952 72.95488l53.20704-0.21504c13.2608 0 26.33216 0.07168 39.2192 0.21504 10.24-16.95744 32.9216-53.6832 48.61952-72.95488 20.84352-25.57952 44.52864-5.21216 44.52864-5.21216s22.26176 18.94912 8.5248 41.68704c-8.9344 14.79168-21.27872 29.57824-28.81536 38.11328 28.35968 0.97792 55.56224 2.33984 81.42336 4.08064 30.5152 1.19808 89.9584 24.79104 100.61312 106.17344 10.7776 82.24768 4.9152 181.96992 0.20992 262.10304z" fill="#F16C8D" p-id="1505"></path></svg></a><!--]--></div></div></div><!--]--><!--]--></div></div></div><!--[--><!--]--><button type="button" class="VPNavBarHamburger hamburger" aria-label="mobile navigation" aria-expanded="false" aria-controls="VPNavScreen" data-v-9fd4d1dd data-v-6bee1efd><span class="container" data-v-6bee1efd><span class="top" data-v-6bee1efd></span><span class="middle" data-v-6bee1efd></span><span class="bottom" data-v-6bee1efd></span></span></button></div></div></div></div><div class="divider" data-v-9fd4d1dd><div class="divider-line" data-v-9fd4d1dd></div></div></div><!----></header><div class="VPLocalNav empty fixed" data-v-d8b57b2d data-v-2488c25a><div class="container" data-v-2488c25a><!----><div class="VPLocalNavOutlineDropdown" style="--vp-vh:0px;" data-v-2488c25a data-v-6b867909><button data-v-6b867909>Return to top</button><!----></div></div></div><!----><div class="VPContent" id="VPContent" data-v-d8b57b2d data-v-9a6c75ad><div class="VPDoc has-aside" data-v-9a6c75ad data-v-e6f2a212><!--[--><!--]--><div class="container" data-v-e6f2a212><div class="left-aside aside" data-v-e6f2a212><div class="aside-curtain" data-v-e6f2a212></div><div class="aside-container" data-v-e6f2a212><div class="aside-content" data-v-e6f2a212><div class="VPDocAside" data-v-e6f2a212 data-v-cb998dce><!--[--><!--]--><!--[--><!--]--><nav aria-labelledby="doc-outline-aria-label" class="VPDocAsideOutline" data-v-cb998dce data-v-f610f197><div class="content" data-v-f610f197><div class="outline-marker" data-v-f610f197></div><div aria-level="2" class="outline-title" id="doc-outline-aria-label" role="heading" data-v-f610f197>目录</div><ul class="VPDocOutlineItem root" data-v-f610f197 data-v-53c99d69><!--[--><!--]--></ul></div></nav><!--[--><!--]--><div class="spacer" data-v-cb998dce></div><!--[--><!--]--><!----><!--[--><!--]--><!--[--><!--]--></div></div></div></div><div class="content" data-v-e6f2a212><div class="content-container" data-v-e6f2a212><!--[--><!--]--><main class="main" data-v-e6f2a212><div style="position:relative;" class="vp-doc _XIAOHUANG_BLOG_docs_%E8%BD%AF%E4%BB%B6%E8%B5%84%E6%96%99_%E7%BC%96%E7%A8%8B%E8%B5%84%E6%96%99_ROS2%E5%9F%BA%E7%A1%80_ROS2%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0_Part2_ROS2%E8%8A%82%E7%82%B9%E8%AF%9D%E9%A2%98%E6%9C%8D%E5%8A%A1%E6%8E%A5%E5%8F%A3launchTF" data-v-e6f2a212><div><h1 id="ros2节点" tabindex="-1">ROS2节点 <a class="header-anchor" href="#ros2节点" aria-label="Permalink to &quot;ROS2节点&quot;">​</a></h1><h2 id="节点简介" tabindex="-1">节点简介 <a class="header-anchor" href="#节点简介" aria-label="Permalink to &quot;节点简介&quot;">​</a></h2><p>在通信时，不论采用何种方式，通信对象的构建都依赖于节点(Node)，在ROS2中，一般情况下每个节点都对应某一单一的功能模块(例如：雷达驱动节点可能负责发布雷达消息，摄像头驱动节点可能负责发布图像消息)。一个完整的机器人系统可能由许多协同工作的节点组成，ROS2中的单个可执行文件(C++程序或Python程序)可以包含一个或多个节点。</p><h2 id="创建节点" tabindex="-1">创建节点 <a class="header-anchor" href="#创建节点" aria-label="Permalink to &quot;创建节点&quot;">​</a></h2><ul><li>创建python功能包</li></ul><p>workspace替换成实际的工作空间路径</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>cd workspace/src</span></span>
+<span class="line"><span>ros2 pkg create pkg_helloworld_py --build-type ament_python --dependencies rclpy --node-name helloworld</span></span></code></pre></div><ul><li>编写代码</li></ul><p>执行上面命令后会创建pkg_helloworld_py，同时会创建helloworld.py文件来编写节点：</p><img src="/XIAOHUANG_BLOG/assets/image-20231023163116372-1786674227443-34.BTAeWvld.png" alt="image-20231023163116372" style="zoom:67%;"><p>删除原本 helloworld.py 的代码，编写如下代码：</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>import rclpy                                     # ROS2 Python接口库</span></span>
+<span class="line"><span>from rclpy.node import Node                      # ROS2 节点类</span></span>
+<span class="line"><span>import time</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&quot;&quot;&quot;</span></span>
+<span class="line"><span>创建一个HelloWorld节点, 初始化时输出“hello world”日志</span></span>
+<span class="line"><span>&quot;&quot;&quot;</span></span>
+<span class="line"><span>class HelloWorldNode(Node):</span></span>
+<span class="line"><span>    def __init__(self, name):</span></span>
+<span class="line"><span>        super().__init__(name)                     # ROS2节点父类初始化</span></span>
+<span class="line"><span>        while rclpy.ok():                          # ROS2系统是否正常运行</span></span>
+<span class="line"><span>            self.get_logger().info(&quot;Hello World&quot;)  # ROS2日志输出</span></span>
+<span class="line"><span>            time.sleep(0.5)                        # 休眠控制循环时间</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def main(args=None):                               # ROS2节点主入口main函数</span></span>
+<span class="line"><span>    rclpy.init(args=args)                          # ROS2 Python接口初始化</span></span>
+<span class="line"><span>    node = HelloWorldNode(&quot;helloworld&quot;)            # 创建ROS2节点对象并进行初始化</span></span>
+<span class="line"><span>    rclpy.spin(node)                               # 循环等待ROS2退出</span></span>
+<span class="line"><span>    node.destroy_node()                            # 销毁节点对象</span></span>
+<span class="line"><span>    rclpy.shutdown()                               # 关闭ROS2 Python接口</span></span></code></pre></div><p>完成代码的编写后需要设置功能包的编译选项，让系统知道Python程序的入口，打开功能包的setup.py文件，加入如下入口点的配置：</p><img src="/XIAOHUANG_BLOG/assets/image-20231023172134879-1786673592697-9-1786676097576-85.iowubrC-.png" alt="image-20231023172134879" style="zoom:50%;"><h2 id="编译运行功能包" tabindex="-1">编译运行功能包 <a class="header-anchor" href="#编译运行功能包" aria-label="Permalink to &quot;编译运行功能包&quot;">​</a></h2><ul><li>编译功能包</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>colcon build --packages-select pkg_helloworld_py</span></span></code></pre></div><ul><li>在工作空间下刷新环境变量</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>source install/setup.bash</span></span></code></pre></div><ul><li>运行节点</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 run pkg_helloworld_py helloworld</span></span></code></pre></div><p>运行成功后，可以在终端中看到循环打印“Hello World”字符串的效果:</p><img src="/XIAOHUANG_BLOG/assets/image-20231023163749024-1786674227443-35-1786676100212-87.ppL7vr7I.png" alt="image-20231023163749024" style="zoom:50%;"><h1 id="ros2话题通讯" tabindex="-1">ROS2话题通讯 <a class="header-anchor" href="#ros2话题通讯" aria-label="Permalink to &quot;ROS2话题通讯&quot;">​</a></h1><h2 id="话题通讯简介" tabindex="-1">话题通讯简介 <a class="header-anchor" href="#话题通讯简介" aria-label="Permalink to &quot;话题通讯简介&quot;">​</a></h2><p>话题通讯是ROS2使用频率最高的一种通信方式，有发布者发布指定话题的数据，订阅者只要订阅了该话题的数据，就可以接收到数据。</p><p>话题通信是基于发布/订阅模型，如图：</p><img src="/XIAOHUANG_BLOG/assets/image8-1786674227443-36-1786676103116-89.CotKZsC9.gif" alt="image8" style="zoom:50%;"><p>话题数据传输的特性是从一个节点到另外一个节点，发送数据的对象称之为<strong>发布者</strong>，接收数据的对象称之为<strong>订阅者</strong>，每一个话题都需要有一个名字，传输的数据也需要有固定的数据类型。</p><p>接下来就说明下如何使用Python语言实现节点之间的话题通讯。</p><h2 id="实现包含-话题-发布方和订阅方的功能包-py" tabindex="-1">实现包含“话题”发布方和订阅方的功能包（Py） <a class="header-anchor" href="#实现包含-话题-发布方和订阅方的功能包-py" aria-label="Permalink to &quot;实现包含“话题”发布方和订阅方的功能包（Py）&quot;">​</a></h2><ul><li>切换到工作空间src目录下</li><li>新建pkg_topic功能包</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 pkg create pkg_topic --build-type ament_python --dependencies rclpy --node-name publisher_demo</span></span></code></pre></div><h3 id="发布方实现" tabindex="-1">发布方实现 <a class="header-anchor" href="#发布方实现" aria-label="Permalink to &quot;发布方实现&quot;">​</a></h3><ul><li>接下来编辑【publisher_demo.py】实现发布方的功能，添加如下代码：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>#导入rclpy库</span></span>
+<span class="line"><span>import rclpy</span></span>
+<span class="line"><span>from rclpy.node import Node</span></span>
+<span class="line"><span>#导入String字符串消息</span></span>
+<span class="line"><span>from std_msgs.msg import String </span></span>
+<span class="line"><span>#创建一个继承于Node基类的Topic_Pub节点子类 传入一个参数name</span></span>
+<span class="line"><span>class Topic_Pub(Node):</span></span>
+<span class="line"><span>    def __init__(self,name):</span></span>
+<span class="line"><span>        super().__init__(name)</span></span>
+<span class="line"><span>        #创建一个发布者，使用create_publisher的函数，传入的参数分别是：</span></span>
+<span class="line"><span>        #话题数据类型、话题名称、保存消息的队列长度</span></span>
+<span class="line"><span>        self.pub = self.create_publisher(String,&quot;/topic_demo&quot;,1) </span></span>
+<span class="line"><span>        #创建一个定时器，间隔1s进入中断处理函数，传入的参数分别是：</span></span>
+<span class="line"><span>        #中断函数执行的间隔时间，中断处理函数</span></span>
+<span class="line"><span>        self.timer = self.create_timer(1,self.pub_msg)</span></span>
+<span class="line"><span>    #定义中断处理函数</span></span>
+<span class="line"><span>    def pub_msg(self):</span></span>
+<span class="line"><span>        msg = String()  #创建一个String类型的变量msg</span></span>
+<span class="line"><span>        msg.data = &quot;Hi,I send a message.&quot; #给msg里边的data赋值</span></span>
+<span class="line"><span>        self.pub.publish(msg) #发布话题数据</span></span>
+<span class="line"><span>        </span></span>
+<span class="line"><span>#主函数</span></span>
+<span class="line"><span>def main():</span></span>
+<span class="line"><span>    rclpy.init() #初始化</span></span>
+<span class="line"><span>    pub_demo = Topic_Pub(&quot;publisher_node&quot;) #创建Topic_Pub类对象，传入的参数就是节点的名字</span></span>
+<span class="line"><span>    rclpy.spin(pub_demo)     #执行rclpy.spin函数，里边传入一个参数，参数是刚才创建好的Topic_Pub类对象</span></span>
+<span class="line"><span>    pub_demo.destroy_node()  #销毁节点对象</span></span>
+<span class="line"><span>    rclpy.shutdown()         #关闭ROS2 Python接口</span></span></code></pre></div><ul><li>编辑配置文件setup.py</li></ul><img src="/XIAOHUANG_BLOG/assets/image-20231023173312172-1786674227443-37-1786674512894-60-1786676106284-91.BF29M2EW.png" alt="image-20231023173312172" style="zoom:50%;"><ul><li>编译功能包</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>colcon build --packages-select pkg_topic</span></span></code></pre></div><ul><li>在工作空间下刷新环境变量</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>source install/setup.bash</span></span></code></pre></div><ul><li>运行命令</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 run pkg_topic publisher_demo</span></span></code></pre></div><ul><li>查看所有话题</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 topic list</span></span></code></pre></div><p><img src="/XIAOHUANG_BLOG/assets/image-20231023173728019-1786674227444-39-1786676110301-93.CAQUrh-W.png" alt="image-20231023173728019" loading="lazy"></p><ul><li>查看话题数据</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 topic echo /topic_demo</span></span></code></pre></div><img src="/XIAOHUANG_BLOG/assets/image-20231023173821223-1786674227444-40-1786676113043-95.DGKth2fX.png" alt="image-20231023173821223" style="zoom:50%;"><h3 id="订阅方实现" tabindex="-1">订阅方实现 <a class="header-anchor" href="#订阅方实现" aria-label="Permalink to &quot;订阅方实现&quot;">​</a></h3><p>在【publisher_demo.py】同级目录下新建文件【subscriber_demo.py】</p><p><img src="/XIAOHUANG_BLOG/assets/image-20231023174819565.CDcDzo4G.png" alt="image-20231023174819565" loading="lazy"></p><p>接下来编辑【subscriber_demo.py】实现订阅方的功能，添加如下代码：</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>#导入相关的库</span></span>
+<span class="line"><span>import rclpy</span></span>
+<span class="line"><span>from rclpy.node import Node</span></span>
+<span class="line"><span>from std_msgs.msg import String</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>class Topic_Sub(Node):</span></span>
+<span class="line"><span>    def __init__(self,name):</span></span>
+<span class="line"><span>        super().__init__(name)  </span></span>
+<span class="line"><span>        #创建订阅者使用的是create_subscription，传入的参数分别是：话题数据类型，话题名称，回调函数名称，队列长度</span></span>
+<span class="line"><span>        self.sub = self.create_subscription(String,&quot;/topic_demo&quot;,self.sub_callback,1) </span></span>
+<span class="line"><span>    #回调函数执行程序：打印接收的到信息</span></span>
+<span class="line"><span>    def sub_callback(self,msg):</span></span>
+<span class="line"><span>        # print(msg.data,flush=True)</span></span>
+<span class="line"><span>        self.get_logger().info(msg.data)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def main():</span></span>
+<span class="line"><span>    rclpy.init() #ROS2 Python接口初始化</span></span>
+<span class="line"><span>    sub_demo = Topic_Sub(&quot;subscriber_node&quot;) # 创建对象并进行初始化</span></span>
+<span class="line"><span>    rclpy.spin(sub_demo)</span></span>
+<span class="line"><span>    sub_demo.destroy_node()  #销毁节点对象</span></span>
+<span class="line"><span>    rclpy.shutdown()         #关闭ROS2 Python接口</span></span></code></pre></div><ul><li>编辑配置文件</li></ul><img src="/XIAOHUANG_BLOG/assets/image-20231023175338754.3l0-5AD1.png" alt="image-20231023175338754" style="zoom:50%;"><ul><li>编译功能包</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>colcon build --packages-select pkg_topic</span></span></code></pre></div><ul><li>在工作空间下刷新环境变量</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>source install/setup.bash</span></span></code></pre></div><ul><li>分割终端执行如下：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>#启动发布者节点</span></span>
+<span class="line"><span>ros2 run pkg_topic publisher_demo</span></span>
+<span class="line"><span>#启动订阅者节点</span></span>
+<span class="line"><span>ros2 run pkg_topic subscriber_demo</span></span></code></pre></div><h1 id="ros2服务通讯" tabindex="-1">ROS2服务通讯 <a class="header-anchor" href="#ros2服务通讯" aria-label="Permalink to &quot;ROS2服务通讯&quot;">​</a></h1><h2 id="服务通讯简介" tabindex="-1">服务通讯简介 <a class="header-anchor" href="#服务通讯简介" aria-label="Permalink to &quot;服务通讯简介&quot;">​</a></h2><p>服务通讯是一种基于请求响应的通信模型，在通信双方中，客户端发送请求数据到服务端，服务端响应结果给客户端。</p><p>客户端/服务器模型如下：</p><img src="/XIAOHUANG_BLOG/assets/image8-1786674921573-62-1786676123286-101.BAz7wo50.gif" alt="image8" style="zoom:50%;"><p>从服务的实现机制上来看，这种你问我答的形式叫做客户端/服务器模型，简称为CS模型，客户端在需要某些数据的时候，针对某个具体的服务，发送请求信息，服务器端收到请求之后，就会进行处理并反馈应答信息。</p><p>这种通信机制在生活中也很常见，比如我们经常浏览的各种网页，此时你的电脑浏览器就是客户端，通过域名或者各种操作，向网站服务器发送请求，服务器收到之后返回需要展现的页面数据。</p><h2 id="实现包含-服务-服务端与客户端的功能包-py" tabindex="-1">实现包含&quot;服务&quot;服务端与客户端的功能包（Py） <a class="header-anchor" href="#实现包含-服务-服务端与客户端的功能包-py" aria-label="Permalink to &quot;实现包含&quot;服务&quot;服务端与客户端的功能包（Py）&quot;">​</a></h2><ul><li>在工作空间src目录下：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 pkg create pkg_service --build-type ament_python --dependencies rclpy --node-name server_demo</span></span></code></pre></div><p>执行完上述命令，会创建pkg_service功能包，同时会创建一个server_demo的节点，并且已经配置好相关的配置文件</p><img src="/XIAOHUANG_BLOG/assets/image-20231023181903517-1786674227444-41-1786676125732-103.DElrBltw.png" alt="img" style="zoom:50%;"><h3 id="服务端实现" tabindex="-1">服务端实现 <a class="header-anchor" href="#服务端实现" aria-label="Permalink to &quot;服务端实现&quot;">​</a></h3><ul><li>接下来编辑【server_demo.py】实现服务端的功能，添加如下代码：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>#导入相关的库文件</span></span>
+<span class="line"><span>import rclpy</span></span>
+<span class="line"><span>from rclpy.node import Node</span></span>
+<span class="line"><span>from example_interfaces.srv import AddTwoInts</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>class Service_Server(Node):</span></span>
+<span class="line"><span>    def __init__(self,name):</span></span>
+<span class="line"><span>        super().__init__(name)</span></span>
+<span class="line"><span>        #创建一个服务端，使用的是create_service函数，传入的参数分别是：</span></span>
+<span class="line"><span>        #服务数据的数据类型、服务的名称，服务回调函数（也就是服务的内容）</span></span>
+<span class="line"><span>        self.srv = self.create_service(AddTwoInts, &#39;/add_two_ints&#39;, self.Add2Ints_callback)</span></span>
+<span class="line"><span>    #这里的服务回调函数的内容是把两个整型数相加，然后返回相加的结果    </span></span>
+<span class="line"><span>    def Add2Ints_callback(self,request,response):</span></span>
+<span class="line"><span>        response.sum = request.a + request.b</span></span>
+<span class="line"><span>        print(&quot;response.sum = &quot;,response.sum)</span></span>
+<span class="line"><span>        return response</span></span>
+<span class="line"><span>def main():</span></span>
+<span class="line"><span>    rclpy.init()</span></span>
+<span class="line"><span>    server_demo = Service_Server(&quot;publisher_node&quot;)</span></span>
+<span class="line"><span>    rclpy.spin(server_demo)</span></span>
+<span class="line"><span>    server_demo.destroy_node()                     # 销毁节点对象</span></span>
+<span class="line"><span>    rclpy.shutdown()                               # 关闭ROS2 Python接口</span></span></code></pre></div><p>重点看下服务回调函数，Add2Ints_callback，这里需要传入的参数除了self，还有就是request和response，request是服务需要的参数，response是服务的反馈结果。request.a和request.b是request部分的内容，response.sum是response部分的内容，这里首先看看下AddTwoInts这个类型的数据是怎么样的。</p><ul><li>可以使用以下命令查看</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 interface show example_interfaces/srv/AddTwoInts</span></span></code></pre></div><img src="/XIAOHUANG_BLOG/assets/image-20231023183333410.CSehxKYz.png" alt="image-20231023183333410" style="zoom:50%;"><p>“---” 把该类型的数据划分成了两个部分，上边代表的是request，下边代表的是response。然后各自的领域中又各自的变量，比如int64 a、int64 b，所有在再传入参数的是，需要指定a、b的值是是多少。同样，反馈的结果也需要指定sum的值是多少。</p><ul><li>打开setup.py,在console_scripts列表中添加</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>&#39;server_demo = pkg_service.server_demo:main&#39;,</span></span></code></pre></div><img src="/XIAOHUANG_BLOG/assets/image-20231023183130612-1786676084385-83.B5nFdMMt.png" alt="image-20231023183130612" style="zoom:50%;"><ul><li>编译功能包</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>colcon build --packages-select pkg_service</span></span></code></pre></div><ul><li>在工作空间下刷新环境变量</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>source install/setup.bash</span></span></code></pre></div><ul><li>运行</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 run pkg_service server_demo</span></span></code></pre></div><ul><li>查询当前所有运行的服务</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 service list</span></span></code></pre></div><img src="/XIAOHUANG_BLOG/assets/image-20231023183459015.7ecuNjRF.png" alt="image-20231023183459015" style="zoom:67%;"><ul><li>命令行测试某个服务：/add_two_ints就是我们需要调用的服务，通过以下命令进行调用，终端输入：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts &quot;{a: 1,b: 4}&quot;</span></span></code></pre></div><p>这里我们把a的值赋值成1，b的值赋值成4，也就是调用服务计算1和4的和：</p><img src="/XIAOHUANG_BLOG/assets/image-20231023183636466.DOjBs63I.png" alt="image-20231023183636466" style="zoom:50%;"><h3 id="客户端实现" tabindex="-1">客户端实现 <a class="header-anchor" href="#客户端实现" aria-label="Permalink to &quot;客户端实现&quot;">​</a></h3><p>在【server_demo.py】同级目录下新建文件【client_demo.py】</p><img src="/XIAOHUANG_BLOG/assets/image-20231023184928672.CMYQ9Pn2.png" alt="image-20231023184928672" style="zoom:67%;"><ul><li>接下来编辑【client_demo.py】实现客户端的功能，添加如下代码：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>#导入相关的库</span></span>
+<span class="line"><span>import rclpy</span></span>
+<span class="line"><span>from rclpy.node import Node</span></span>
+<span class="line"><span>from example_interfaces.srv import AddTwoInts</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>class Service_Client(Node):</span></span>
+<span class="line"><span>    def __init__(self,name):</span></span>
+<span class="line"><span>        super().__init__(name)</span></span>
+<span class="line"><span>        #创建客户端，使用的是create_client函数，传入的参数是服务数据的数据类型、服务的话题名称</span></span>
+<span class="line"><span>        self.client = self.create_client(AddTwoInts,&#39;/add_two_ints&#39;)</span></span>
+<span class="line"><span>        # 循环等待服务器端成功启动</span></span>
+<span class="line"><span>        while not self.client.wait_for_service(timeout_sec=1.0):</span></span>
+<span class="line"><span>            print(&quot;service not available, waiting again...&quot;)</span></span>
+<span class="line"><span>        # 创建服务请求的数据对象</span></span>
+<span class="line"><span>        self.request = AddTwoInts.Request()</span></span>
+<span class="line"><span>        </span></span>
+<span class="line"><span>    def send_request(self): </span></span>
+<span class="line"><span>        self.request.a = 10</span></span>
+<span class="line"><span>        self.request.b = 90</span></span>
+<span class="line"><span>        #发送服务请求</span></span>
+<span class="line"><span>        self.future = self.client.call_async(self.request)</span></span>
+<span class="line"><span>        </span></span>
+<span class="line"><span>def main():</span></span>
+<span class="line"><span>    rclpy.init() #节点初始化</span></span>
+<span class="line"><span>    service_client = Service_Client(&quot;client_node&quot;) #创建对象</span></span>
+<span class="line"><span>    service_client.send_request() #发送服务请求</span></span>
+<span class="line"><span>    while rclpy.ok():</span></span>
+<span class="line"><span>        rclpy.spin_once(service_client)</span></span>
+<span class="line"><span>        #判断数据是否处理完成</span></span>
+<span class="line"><span>        if service_client.future.done():</span></span>
+<span class="line"><span>            try:</span></span>
+<span class="line"><span>                #获得服务反馈的信息并且打印</span></span>
+<span class="line"><span>                response = service_client.future.result()</span></span>
+<span class="line"><span>                print(&quot;service_client.request.a = &quot;,service_client.request.a)</span></span>
+<span class="line"><span>                print(&quot;service_client.request.b = &quot;,service_client.request.b)</span></span>
+<span class="line"><span>                print(&quot;Result = &quot;,response.sum)</span></span>
+<span class="line"><span>            except Exception as e:</span></span>
+<span class="line"><span>                service_client.get_logger().info(&#39;Service call failed %r&#39; % (e,))</span></span>
+<span class="line"><span>        break</span></span>
+<span class="line"><span>    service_client.destroy_node()                    </span></span>
+<span class="line"><span>    rclpy.shutdown()</span></span></code></pre></div><ul><li>编辑配置文件，打开setup.py,在console_scripts列表中添加</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>&#39;client_demo = pkg_service.client_demo:main&#39;</span></span></code></pre></div><img src="/XIAOHUANG_BLOG/assets/image-20231023185118116.ClXpEbbl.png" alt="image-20231023185118116" style="zoom:50%;"><ul><li>编译功能包</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>colcon build --packages-select pkg_service</span></span></code></pre></div><ul><li>在工作空间下刷新环境变量</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>source install/setup.bash</span></span></code></pre></div><ul><li>运行节点</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>#启动服务端节点</span></span>
+<span class="line"><span>ros2 run pkg_service server_demo</span></span>
+<span class="line"><span>#启动客户端节点</span></span>
+<span class="line"><span>ros2 run pkg_service client_demo</span></span></code></pre></div><img src="/XIAOHUANG_BLOG/assets/image-20250905122940643.DztTJ6c4.png" alt="image-20250905122940643" style="zoom:67%;"><p>先运行服务端，然后运行客户端，客户端提供a=10，b=90，服务端进行求和，得到结果是100，结果在两者终端打印。</p><h1 id="ros2动作通讯" tabindex="-1">ROS2动作通讯 <a class="header-anchor" href="#ros2动作通讯" aria-label="Permalink to &quot;ROS2动作通讯&quot;">​</a></h1><h2 id="动作通讯简介" tabindex="-1">动作通讯简介 <a class="header-anchor" href="#动作通讯简介" aria-label="Permalink to &quot;动作通讯简介&quot;">​</a></h2><p>动作通信是一种带有连续反馈的通信模型，在通信双方中，客户端发送请求数据到服务端，服务端响应结果给客户端，但是在服务端接收到请求到产生最终响应的过程中，会发送连续的反馈信息到客户端。</p><p>动作通讯客户端/服务器模型如下：</p><img src="/XIAOHUANG_BLOG/assets/image8-1786676145533-116.CmS5ADfs.gif" alt="image8" style="zoom:67%;"><h2 id="实现包含-动作-服务端与客户端的功能包-py" tabindex="-1">实现包含“动作”服务端与客户端的功能包（Py） <a class="header-anchor" href="#实现包含-动作-服务端与客户端的功能包-py" aria-label="Permalink to &quot;实现包含“动作”服务端与客户端的功能包（Py）&quot;">​</a></h2><p>动作客户端提交一个整型数据N，动作服务端接收请求数据并累加1-N之间的所有整数，将最终结果返回给动作客户端，且每累加一次都计算当前运算进度并反馈给动作客户端。</p><h3 id="创建动作接口功能包-c" tabindex="-1">创建动作接口功能包（C++） <a class="header-anchor" href="#创建动作接口功能包-c" aria-label="Permalink to &quot;创建动作接口功能包（C++）&quot;">​</a></h3><ul><li>动作通讯需要先创建动作通讯接口,在工作空间的src目录下新建pkg_interfaces功能包</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 pkg create --build-type ament_cmake pkg_interfaces</span></span></code></pre></div><ul><li>接着在pkg_interfaces功能包下面创建一个action的文件夹，并在action文件夹内新建【Progress.action】文件，文件内容如下：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>int64 num</span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span>int64 sum</span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span>float64 progress</span></span></code></pre></div><img src="/XIAOHUANG_BLOG/assets/image-20231030154108201.DTM2Z91b.png" alt="image-20231030154108201" style="zoom:50%;"><ul><li>在package.xml中需要添加一些依赖包，具体内容如下：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>&lt;buildtool_depend&gt;rosidl_default_generators&lt;/buildtool_depend&gt;</span></span>
+<span class="line"><span>&lt;exec_depend&gt;rosidl_default_runtime&lt;/exec_depend&gt;</span></span>
+<span class="line"><span>&lt;depend&gt;action_msgs&lt;/depend&gt;</span></span>
+<span class="line"><span>&lt;member_of_group&gt;rosidl_interface_packages&lt;/member_of_group&gt;</span></span></code></pre></div><ul><li>在CMakeLists.txt 中添加如下配置：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>find_package(rosidl_default_generators REQUIRED)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>rosidl_generate_interfaces(${PROJECT_NAME}</span></span>
+<span class="line"><span>  &quot;action/Progress.action&quot;</span></span>
+<span class="line"><span>)</span></span></code></pre></div><img src="/XIAOHUANG_BLOG/assets/image-20231030154828498.C5NYQJ3Q.png" alt="image-20231030154828498" style="zoom:33%;"><ul><li>编译功能包：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>colcon build --packages-select pkg_interfaces</span></span></code></pre></div><ul><li>编译完成之后，通过如下命令查看文件定义以及编译是否正常：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>source install/setup.bash</span></span>
+<span class="line"><span>ros2 interface show pkg_interfaces/action/Progress</span></span></code></pre></div><p>正常情况下，终端将会输出与<code>Progress.action</code>文件一致的内容</p><img src="/XIAOHUANG_BLOG/assets/image-20250820112138938.i60LPYLq.png" alt="image-20250820112138938" style="zoom:67%;"><h3 id="服务端实现-1" tabindex="-1">服务端实现 <a class="header-anchor" href="#服务端实现-1" aria-label="Permalink to &quot;服务端实现&quot;">​</a></h3><ul><li>在工作空间的src目录下新建pkg_action功能包</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 pkg create pkg_action --build-type ament_python --dependencies rclpy pkg_interfaces --node-name action_server_demo</span></span></code></pre></div><ul><li>接下来编辑【action_server_demo.py】实现服务端的功能，添加如下代码：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>import time</span></span>
+<span class="line"><span>import rclpy</span></span>
+<span class="line"><span>from rclpy.action import ActionServer</span></span>
+<span class="line"><span>from rclpy.node import Node</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>from pkg_interfaces.action import Progress</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>class Action_Server(Node):</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def __init__(self):</span></span>
+<span class="line"><span>        super().__init__(&#39;progress_action_server&#39;)</span></span>
+<span class="line"><span>        # 创建动作服务端</span></span>
+<span class="line"><span>        self._action_server = ActionServer(</span></span>
+<span class="line"><span>            self,</span></span>
+<span class="line"><span>            Progress,</span></span>
+<span class="line"><span>            &#39;get_sum&#39;,</span></span>
+<span class="line"><span>            self.execute_callback)</span></span>
+<span class="line"><span>        self.get_logger().info(&#39;动作服务已经启动！&#39;)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def execute_callback(self, goal_handle):</span></span>
+<span class="line"><span>        self.get_logger().info(&#39;开始执行任务....&#39;)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        # 生成连续反馈；</span></span>
+<span class="line"><span>        feedback_msg = Progress.Feedback()</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        sum = 0</span></span>
+<span class="line"><span>        for i in range(1, goal_handle.request.num + 1):</span></span>
+<span class="line"><span>            sum += i</span></span>
+<span class="line"><span>            feedback_msg.progress = i / goal_handle.request.num</span></span>
+<span class="line"><span>            self.get_logger().info(&#39;连续反馈: %.2f&#39; % feedback_msg.progress)</span></span>
+<span class="line"><span>            goal_handle.publish_feedback(feedback_msg)</span></span>
+<span class="line"><span>            time.sleep(1)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        # 生成最终响应。</span></span>
+<span class="line"><span>        goal_handle.succeed()</span></span>
+<span class="line"><span>        result = Progress.Result()</span></span>
+<span class="line"><span>        result.sum = sum</span></span>
+<span class="line"><span>        self.get_logger().info(&#39;任务完成！&#39;)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        return result</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def main(args=None):</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    rclpy.init(args=args)</span></span>
+<span class="line"><span>    # 调用spin函数，并传入节点对象</span></span>
+<span class="line"><span>    Progress_action_server = Action_Server()</span></span>
+<span class="line"><span>    rclpy.spin(Progress_action_server)</span></span>
+<span class="line"><span>    Progress_action_server.destroy_node() </span></span>
+<span class="line"><span>    # 释放资源</span></span>
+<span class="line"><span>    rclpy.shutdown()</span></span></code></pre></div><ul><li>编辑配置文件：打开setup.py,在console_scripts列表中添加</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>&#39;action_server_demo = pkg_action.action_server_demo:main&#39;,</span></span></code></pre></div><img src="/XIAOHUANG_BLOG/assets/image-20231030164238858.DcsBi8P9.png" alt="image-20231030164238858" style="zoom:50%;"><ul><li>编译功能包</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>colcon build --packages-select pkg_action</span></span></code></pre></div><ul><li>运行程序</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 run pkg_action action_server_demo</span></span></code></pre></div><ul><li>检查动作服务是否启动，另一个终端输入：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 action list</span></span></code></pre></div><img src="/XIAOHUANG_BLOG/assets/image-20231030165029444.BzCuJzKT.png" alt="image-20231030165029444" style="zoom:67%;"><ul><li>测试动作服务，/get_sum就是我们需要调用的动作，通过以下命令进行调用，终端输入：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 action send_goal /get_sum pkg_interfaces/action/Progress &quot;{num: 10}&quot;</span></span></code></pre></div><p>这里我们求1到10的和：</p><img src="/XIAOHUANG_BLOG/assets/image-20231030165504071.BwS9GvMR.png" alt="image-20231030165504071" style="zoom:33%;"><p>上图上面是服务端，下面是客户端。可以看到1到10的和计算的过程中有服务端一直在反馈计算的进度，最后显示任务完成，客户端也收到了反馈的和为55</p><h3 id="客户端实现-1" tabindex="-1">客户端实现 <a class="header-anchor" href="#客户端实现-1" aria-label="Permalink to &quot;客户端实现&quot;">​</a></h3><p>在【action_server_demo.py】同级目录下新建文件【action_client_demo.py】</p><p><img src="/XIAOHUANG_BLOG/assets/image-20231030170243256.B3SKdEY8.png" alt="image-20231030170243256" loading="lazy"></p><p>接下来编辑【action_client_demo.py】实现服务端的功能，添加如下代码：</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>import rclpy</span></span>
+<span class="line"><span>from rclpy.action import ActionClient</span></span>
+<span class="line"><span>from rclpy.node import Node</span></span>
+<span class="line"><span>from pkg_interfaces.action import Progress</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>class Action_Client(Node):</span></span>
+<span class="line"><span>    def __init__(self):</span></span>
+<span class="line"><span>        super().__init__(&#39;progress_action_client&#39;)</span></span>
+<span class="line"><span>        # 创建动作客户端；</span></span>
+<span class="line"><span>        self._action_client = ActionClient(self, Progress, &#39;get_sum&#39;)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def send_goal(self, num):</span></span>
+<span class="line"><span>        # 发送请求；</span></span>
+<span class="line"><span>        goal_msg = Progress.Goal()</span></span>
+<span class="line"><span>        goal_msg.num = num</span></span>
+<span class="line"><span>        self._action_client.wait_for_server()</span></span>
+<span class="line"><span>        self._send_goal_future = self._action_client.send_goal_async(goal_msg, feedback_callback=self.feedback_callback)</span></span>
+<span class="line"><span>        self._send_goal_future.add_done_callback(self.goal_response_callback)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def goal_response_callback(self, future):</span></span>
+<span class="line"><span>        # 处理目标发送后的反馈；</span></span>
+<span class="line"><span>        goal_handle = future.result()</span></span>
+<span class="line"><span>        if not goal_handle.accepted:</span></span>
+<span class="line"><span>            self.get_logger().info(&#39;请求被拒绝&#39;)</span></span>
+<span class="line"><span>            return</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        self.get_logger().info(&#39;请求被接收，开始执行任务！&#39;)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        self._get_result_future = goal_handle.get_result_async()</span></span>
+<span class="line"><span>        self._get_result_future.add_done_callback(self.get_result_callback)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    # 处理最终响应。</span></span>
+<span class="line"><span>    def get_result_callback(self, future):</span></span>
+<span class="line"><span>        result = future.result().result</span></span>
+<span class="line"><span>        self.get_logger().info(&#39;最终计算结果:sum = %d&#39; % result.sum)</span></span>
+<span class="line"><span>        # 5.释放资源。</span></span>
+<span class="line"><span>        rclpy.shutdown()</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    # 处理连续反馈；</span></span>
+<span class="line"><span>    def feedback_callback(self, feedback_msg):</span></span>
+<span class="line"><span>        feedback = (int)(feedback_msg.feedback.progress * 100)</span></span>
+<span class="line"><span>        self.get_logger().info(&#39;当前进度: %d%%&#39; % feedback)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def main(args=None):</span></span>
+<span class="line"><span>    rclpy.init(args=args)</span></span>
+<span class="line"><span>    action_client = Action_Client()</span></span>
+<span class="line"><span>    action_client.send_goal(10)</span></span>
+<span class="line"><span>    rclpy.spin(action_client)</span></span></code></pre></div><ul><li>编辑配置文件，打开setup.py,在console_scripts列表中添加</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>&#39;action_client_demo = pkg_action.action_client_demo:main&#39;</span></span></code></pre></div><img src="/XIAOHUANG_BLOG/assets/image-20231030171045187.BxPZsGOD.png" alt="image-20231030171045187" style="zoom:50%;"><ul><li>编译功能包</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>colcon build --packages-select pkg_action</span></span></code></pre></div><ul><li>在工作空间下刷新环境变量</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>source install/setup.bash</span></span></code></pre></div><ul><li>分终端执行如下：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>#启动服务端节点</span></span>
+<span class="line"><span>ros2 run pkg_action action_server_demo</span></span>
+<span class="line"><span>#启动客户端节点</span></span>
+<span class="line"><span>ros2 run pkg_action action_client_demo</span></span></code></pre></div><img src="/XIAOHUANG_BLOG/assets/image-20231030171150033.DM3GlDuU.png" alt="image-20231030171150033" style="zoom:50%;"><p>上图上面是服务端，下面是客户端。这里我们求1到10的和，可以看到1到10的和计算的过程中有服务端一直在反馈计算的进度，最后显示任务完成，客户端也收到了反馈的和为55</p><h1 id="ros2自定义接口消息" tabindex="-1">ROS2自定义接口消息 <a class="header-anchor" href="#ros2自定义接口消息" aria-label="Permalink to &quot;ROS2自定义接口消息&quot;">​</a></h1><h2 id="通讯接口简介" tabindex="-1">通讯接口简介 <a class="header-anchor" href="#通讯接口简介" aria-label="Permalink to &quot;通讯接口简介&quot;">​</a></h2><p>在ROS系统中，无论话题、服务还是动作，都会用到一个重要的概念——通信接口。数据定义一个标准的结构，、就是通信接口。</p><p>接口可以让程序之间的依赖降低，便于我们使用别人的代码，也方便别人使用我们的代码，这就是ROS的核心目标，减少重复造轮子。</p><img src="/XIAOHUANG_BLOG/assets/image-20220528001533911.TPknXTSR.png" alt="image-20220528001533911" style="zoom:50%;"><p>ROS有三种常用的通信机制，分别是话题、服务、动作，通过每一种通信种定义的接口，各种节点才能有机的联系到一起</p><h2 id="实现自定义接口" tabindex="-1">实现自定义接口 <a class="header-anchor" href="#实现自定义接口" aria-label="Permalink to &quot;实现自定义接口&quot;">​</a></h2><h3 id="实现话题的自定义接口" tabindex="-1">实现话题的自定义接口 <a class="header-anchor" href="#实现话题的自定义接口" aria-label="Permalink to &quot;实现话题的自定义接口&quot;">​</a></h3><ul><li>在工作空间的src目录下新建pkg_interfaces功能包（名字任意）</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 pkg create --build-type ament_cmake pkg_interfaces</span></span></code></pre></div><ul><li>在功能包pkg_interfaces下新建 msg 文件夹，msg文件夹下新建<strong>Person.msg</strong>文件，文件中输入如下内容：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>string   name</span></span>
+<span class="line"><span>int32    age</span></span>
+<span class="line"><span>float64  height</span></span></code></pre></div><ul><li>CMakeLists.txt中添加如下配置：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>rosidl_generate_interfaces(${PROJECT_NAME}</span></span>
+<span class="line"><span>  &quot;action/Progress.action&quot;</span></span>
+<span class="line"><span>  &quot;msg/Person.msg&quot;</span></span>
+<span class="line"><span>)</span></span></code></pre></div><ul><li>package.xml中添加如下配置：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>&lt;buildtool_depend&gt;rosidl_default_generators&lt;/buildtool_depend&gt;</span></span>
+<span class="line"><span>&lt;exec_depend&gt;rosidl_default_runtime&lt;/exec_depend&gt;</span></span>
+<span class="line"><span>&lt;depend&gt;action_msgs&lt;/depend&gt;</span></span>
+<span class="line"><span>&lt;member_of_group&gt;rosidl_interface_packages&lt;/member_of_group&gt;</span></span></code></pre></div><img src="/XIAOHUANG_BLOG/assets/image-20231030180212876.Dq0Itk7O.png" alt="image-20231030180212876" style="zoom:33%;"><ul><li>终端中进入当前工作空间，编译功能包：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>colcon build --packages-select pkg_interfaces</span></span></code></pre></div><ul><li>先刷新环境变量</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>source install/setup.bash</span></span></code></pre></div><ul><li>查看接口类型，测试接口是否正常</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 interface show pkg_interfaces/msg/Person</span></span></code></pre></div><p>正常情况下，终端将会输出与<code>Person.msg</code>文件一致的内容。</p><h3 id="实现服务的自定义接口" tabindex="-1">实现服务的自定义接口 <a class="header-anchor" href="#实现服务的自定义接口" aria-label="Permalink to &quot;实现服务的自定义接口&quot;">​</a></h3><ul><li>在工作空间的src目录下新建pkg_interfaces功能包（名字任意）</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 pkg create --build-type ament_cmake pkg_interfaces</span></span></code></pre></div><ul><li>功能包pkg_interfaces下新建srv文件夹，srv文件夹下新建Add.srv文件，文件中输入如下内容：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>int32 num1</span></span>
+<span class="line"><span>int32 num2</span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span>int32 sum</span></span></code></pre></div><ul><li>CMakeLists.txt中添加如下配置：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>rosidl_generate_interfaces(${PROJECT_NAME}</span></span>
+<span class="line"><span>  &quot;action/Progress.action&quot;</span></span>
+<span class="line"><span>  &quot;msg/Person.msg&quot;</span></span>
+<span class="line"><span>  &quot;srv/Add.srv&quot;</span></span>
+<span class="line"><span>)</span></span></code></pre></div><ul><li>package.xml中添加如下配置：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>&lt;buildtool_depend&gt;rosidl_default_generators&lt;/buildtool_depend&gt;</span></span>
+<span class="line"><span>&lt;exec_depend&gt;rosidl_default_runtime&lt;/exec_depend&gt;</span></span>
+<span class="line"><span>&lt;depend&gt;action_msgs&lt;/depend&gt;</span></span>
+<span class="line"><span>&lt;member_of_group&gt;rosidl_interface_packages&lt;/member_of_group&gt;</span></span></code></pre></div><img src="/XIAOHUANG_BLOG/assets/image-20231030180424883.Yr-HhqkS.png" alt="image-20231030180424883" style="zoom:33%;"><ul><li>终端中进入当前工作空间，编译功能包：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>colcon build --packages-select pkg_interfaces</span></span>
+<span class="line"><span>source install/setup.bash</span></span></code></pre></div><ul><li>测试</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 interface show pkg_interfaces/srv/Add</span></span></code></pre></div><p>正常情况下，终端将会输出与<code>Person.msg</code>文件一致的内容。</p><h1 id="ros2-launch启动文件配置" tabindex="-1">ROS2 Launch启动文件配置 <a class="header-anchor" href="#ros2-launch启动文件配置" aria-label="Permalink to &quot;ROS2 Launch启动文件配置&quot;">​</a></h1><h2 id="launch简介" tabindex="-1">launch简介 <a class="header-anchor" href="#launch简介" aria-label="Permalink to &quot;launch简介&quot;">​</a></h2><p>到目前为止，每当我们运行一个ROS节点，都需要打开一个新的终端运行一个命令。机器人系统中节点很多，每次都这样启动好麻烦呀。有没有一种方式可以一次性启动所有节点呢？答案当然是肯定的，那就是Launch启动文件，它是ROS系统中多节点启动与配置的一种脚本。</p><p>ROS2中，launch用于多节点启动和配置程序运行参数等功能，ROS2的launch文件格式有xml、yaml和python格式。本节课程以python格式的launch文件为例，相对于另外两种格式，python格式的更加灵活：</p><ul><li>python拥有众多的函数库，可以在启动文件中使用；</li><li>ROS2通用启动特性和特定启动特性是用Python编写的，因此可以访问XML和YAML可能没有公开的启动特性；</li></ul><p>使用python语言编写ROS2 launch文件，最主要的是把每个节点、文件、脚本等抽象成一个action，用统一的接口来启动。</p><p>参考资料：</p><ul><li>launch系统设计文档:<a href="https://design.ros2.org/articles/roslaunch.html" target="_blank" rel="noreferrer">ROS 2 launch系统设计文档</a></li><li>launch官方API文档：<a href="https://docs.ros.org/en/rolling/p/launch/architecture.html" target="_blank" rel="noreferrer">launch API文档（随官方更新）</a></li></ul><h2 id="实现launch启动" tabindex="-1">实现launch启动 <a class="header-anchor" href="#实现launch启动" aria-label="Permalink to &quot;实现launch启动&quot;">​</a></h2><ul><li>准备工作，创建功能包存放程序文件</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 pkg create learn_launch --build-type ament_python</span></span></code></pre></div><h3 id="编写单个node节点的launch" tabindex="-1">编写单个Node节点的launch <a class="header-anchor" href="#编写单个node节点的launch" aria-label="Permalink to &quot;编写单个Node节点的launch&quot;">​</a></h3><ul><li>新建launch文件：在功能包下新建一个launch文件夹，然后在launch文件夹内新建【single_node_launch.py】文件，把以下内容复制到该文件中：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>from launch import LaunchDescription</span></span>
+<span class="line"><span>from launch_ros.actions import Node</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def generate_launch_description():</span></span>
+<span class="line"><span>    node = Node(</span></span>
+<span class="line"><span>        package=&#39;pkg_helloworld_py&#39;,</span></span>
+<span class="line"><span>        executable=&#39;helloworld&#39;,</span></span>
+<span class="line"><span>        output=&#39;screen&#39;</span></span>
+<span class="line"><span>    )</span></span>
+<span class="line"><span>    return LaunchDescription([node])</span></span></code></pre></div><div class="tip custom-block github-alert"><p class="custom-block-title">TIP</p><p></p><p><strong>源码分析</strong></p><p>1、导入相关库</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>from launch import LaunchDescription</span></span>
+<span class="line"><span>from launch_ros.actions import Node</span></span></code></pre></div><p>2、定义一个函数generate_launch_description，并且返回一个launch_description</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>def generate_launch_description():</span></span>
+<span class="line"><span>    node = Node(</span></span>
+<span class="line"><span>        package=&#39;pkg_helloworld_py&#39;,</span></span>
+<span class="line"><span>        executable=&#39;helloworld&#39;,</span></span>
+<span class="line"><span>    )</span></span>
+<span class="line"><span>    return LaunchDescription([node])</span></span></code></pre></div><p>定义了一个变量node作为一个节点启动的返回值，调用Node函数，启动重要的两个参数，package和executable。</p><ul><li>package：表示功能包，代表功能包的名字。</li><li>executable：表示执行的程序，可执行程序的名字。</li></ul><p>最后调用LaunchDescription函数传入node参数执行返回。</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>return LaunchDescription([node])</span></span></code></pre></div></div><ul><li>配置setup.py文件</li></ul><p>launch文件命名常以LaunchName_launch.py，其中，LaunchName自定义，_launch.py是常认为固定的。需要修改功能包下的setup.py文件，修改内容为添加launch路径下的文件，编译才能生成执行的.py文件，</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>#1、导入相关的头文件</span></span>
+<span class="line"><span>import os</span></span>
+<span class="line"><span>from glob import glob</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>#2、在data_files的列表中，加上launch路径以及路径下的launch.py文件</span></span>
+<span class="line"><span>(os.path.join(&#39;share&#39;,package_name,&#39;launch&#39;),glob(os.path.join(&#39;launch&#39;,&#39;*launch.py&#39;)))</span></span></code></pre></div><img src="https://www.yahboom.com/public/upload/upload-html/1757404891/image-20231031114303641.png" alt="image-20231031114303641" style="zoom:33%;"><ul><li>编译功能包</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>colcon build --packages-select learn_launch</span></span></code></pre></div><ul><li>刷新环境变量，然后运行launch文件</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 launch learn_launch single_node_launch.py</span></span></code></pre></div><h3 id="编写多个node节点的launch" tabindex="-1">编写多个Node节点的launch <a class="header-anchor" href="#编写多个node节点的launch" aria-label="Permalink to &quot;编写多个Node节点的launch&quot;">​</a></h3><ul><li>新建launch文件夹，新建【multi_node_launch.py】文件，添加如下内容：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>from launch import LaunchDescription</span></span>
+<span class="line"><span>from launch_ros.actions import Node</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def generate_launch_description():</span></span>
+<span class="line"><span>    publisher_node = Node(</span></span>
+<span class="line"><span>        package=&#39;pkg_topic&#39;,</span></span>
+<span class="line"><span>        executable=&#39;publisher_demo&#39;,</span></span>
+<span class="line"><span>        output=&#39;screen&#39;</span></span>
+<span class="line"><span>    )</span></span>
+<span class="line"><span>    subscriber_node = Node(</span></span>
+<span class="line"><span>        package=&#39;pkg_topic&#39;,</span></span>
+<span class="line"><span>        executable=&#39;subscriber_demo&#39;,</span></span>
+<span class="line"><span>        output=&#39;screen&#39;</span></span>
+<span class="line"><span>    )</span></span>
+<span class="line"><span>    return LaunchDescription([</span></span>
+<span class="line"><span>        publisher_node,</span></span>
+<span class="line"><span>        subscriber_node</span></span>
+<span class="line"><span>    ])</span></span></code></pre></div><ul><li>编译功能包</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>colcon build --packages-select learn_launch</span></span></code></pre></div><ul><li>刷新环境变量，然后运行launch文件</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 launch learn_launch multi_node_launch.py</span></span></code></pre></div><ul><li>如果终端没有打印内容，我们可以查看哪些节点启动 来验证是否有启动成功，终端输入：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 node list</span></span></code></pre></div><h2 id="launch中的话题重映射" tabindex="-1">launch中的话题重映射 <a class="header-anchor" href="#launch中的话题重映射" aria-label="Permalink to &quot;launch中的话题重映射&quot;">​</a></h2><ul><li>新建launch文件：在multi_node_launch.py同级目录下新建【remap_name_launch.py】文件，添加如下内容：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>from launch import LaunchDescription</span></span>
+<span class="line"><span>from launch_ros.actions import Node</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def generate_launch_description():</span></span>
+<span class="line"><span>    publisher_node = Node(</span></span>
+<span class="line"><span>        package=&#39;pkg_topic&#39;,</span></span>
+<span class="line"><span>        executable=&#39;publisher_demo&#39;,</span></span>
+<span class="line"><span>        output=&#39;screen&#39;,</span></span>
+<span class="line"><span>        remappings=[(&quot;/topic_demo&quot;, &quot;/topic_update&quot;)]</span></span>
+<span class="line"><span>    )</span></span>
+<span class="line"><span>    return LaunchDescription([</span></span>
+<span class="line"><span>        publisher_node</span></span>
+<span class="line"><span>    ])</span></span></code></pre></div><div class="tip custom-block github-alert"><p class="custom-block-title">TIP</p><p></p><p><strong>源码分析</strong></p><p>主要是加了以下部分：</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>remappings=[(&quot;/topic_demo&quot;, &quot;/topic_update&quot;)]</span></span></code></pre></div><p>这里就是把原来的/topic_demo话题重映射成/topic_update</p></div><ul><li>编译功能包</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>colcon build --packages-select learn_launch</span></span></code></pre></div><ul><li>运行程序</li></ul><p>我们先看看没有重映射话题前，publisher_demo节点发布的话题是什么：</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 launch learn_launch multi_node_launch.py </span></span>
+<span class="line"><span>ros2 topic list</span></span></code></pre></div><img src="https://www.yahboom.com/public/upload/upload-html/1757404891/image-20231031121230604.png" alt="image-20231031121230604" style="zoom:50%;"><p>这里的话题是【/topic_demo】</p><ul><li>再刷新环境变量，运行重映射话题后的程序，看看变化：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 launch learn_launch remap_name_launch.py</span></span>
+<span class="line"><span>ros2 topic list</span></span></code></pre></div><img src="https://www.yahboom.com/public/upload/upload-html/1757404891/image-20250905175613834.png" alt="image-20250905175613834" style="zoom:50%;"><p>由上图可知，重映射了话题名称为【/topic_update】</p><h2 id="launch文件嵌套启动另一个launch文件案例" tabindex="-1">launch文件嵌套启动另一个launch文件案例 <a class="header-anchor" href="#launch文件嵌套启动另一个launch文件案例" aria-label="Permalink to &quot;launch文件嵌套启动另一个launch文件案例&quot;">​</a></h2><ul><li>新建launch文件：在multi_node_launch.py同级目录下新建【include_launch.py】文件，添加如下内容：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>from launch import LaunchDescription</span></span>
+<span class="line"><span>from launch_ros.actions import Node </span></span>
+<span class="line"><span>import os</span></span>
+<span class="line"><span>from launch.actions import IncludeLaunchDescription</span></span>
+<span class="line"><span>from launch.launch_description_sources import PythonLaunchDescriptionSource</span></span>
+<span class="line"><span>from ament_index_python.packages import get_package_share_directory</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def generate_launch_description():</span></span>
+<span class="line"><span>    hello_launch = IncludeLaunchDescription(PythonLaunchDescriptionSource(</span></span>
+<span class="line"><span>        [os.path.join(get_package_share_directory(&#39;learn_launch&#39;), &#39;launch&#39;),</span></span>
+<span class="line"><span>        &#39;/multi_node_launch.py&#39;]),</span></span>
+<span class="line"><span>    )</span></span>
+<span class="line"><span>    return LaunchDescription([</span></span>
+<span class="line"><span>        hello_launch</span></span>
+<span class="line"><span>    ])</span></span></code></pre></div><div class="tip custom-block github-alert"><p class="custom-block-title">TIP</p><p></p><p><strong>源码分析</strong></p><ul><li>嵌套启动launch文件需要使用launch系统的 IncludeLaunchDescription和PythonLaunchDescriptionSource两个类</li><li>os.path.join(get_package_share_directory(&#39;learn_launch&#39;)：获取功能包的位置，其中的&#39;learn_launch&#39;为功能包的名字；</li><li>launch&#39;)：表示存放功能包下存放launch文件的文件夹；</li><li>/multi_node_launch.py&#39;：表示该功能包launch文件夹下的/multi_node_launch.py文件。</li></ul></div><ul><li>编译功能包</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>colcon build --packages-select learn_launch</span></span></code></pre></div><ul><li>刷新环境变量运行launch文件</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 launch learn_launch include_launch.py</span></span></code></pre></div><h2 id="综合launch文件示例" tabindex="-1">综合launch文件示例 <a class="header-anchor" href="#综合launch文件示例" aria-label="Permalink to &quot;综合launch文件示例&quot;">​</a></h2><p>本案例主要展示如何编写复杂的launch文件，程序的功能可忽略。</p><ul><li>新建launch文件：在multi_node_launch.py同级目录下新建【complex_launch.py】文件，添加如下内容：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>import os</span></span>
+<span class="line"><span>from ament_index_python import get_package_share_directory</span></span>
+<span class="line"><span>from launch import LaunchDescription</span></span>
+<span class="line"><span>from launch.actions import DeclareLaunchArgument</span></span>
+<span class="line"><span>from launch.actions import IncludeLaunchDescription</span></span>
+<span class="line"><span>from launch.actions import GroupAction</span></span>
+<span class="line"><span>from launch.launch_description_sources import PythonLaunchDescriptionSource</span></span>
+<span class="line"><span>from launch.substitutions import LaunchConfiguration</span></span>
+<span class="line"><span>from launch.substitutions import TextSubstitution</span></span>
+<span class="line"><span>from launch_ros.actions import Node</span></span>
+<span class="line"><span>from launch_ros.actions import PushRosNamespace</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def generate_launch_description():</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    # args that can be set from the command line or a default will be used</span></span>
+<span class="line"><span>    background_r_launch_arg = DeclareLaunchArgument(</span></span>
+<span class="line"><span>        &quot;background_r&quot;, default_value=TextSubstitution(text=&quot;0&quot;)</span></span>
+<span class="line"><span>    )</span></span>
+<span class="line"><span>    background_g_launch_arg = DeclareLaunchArgument(</span></span>
+<span class="line"><span>        &quot;background_g&quot;, default_value=TextSubstitution(text=&quot;255&quot;)</span></span>
+<span class="line"><span>    )</span></span>
+<span class="line"><span>    background_b_launch_arg = DeclareLaunchArgument(</span></span>
+<span class="line"><span>        &quot;background_b&quot;, default_value=TextSubstitution(text=&quot;0&quot;)</span></span>
+<span class="line"><span>    )</span></span>
+<span class="line"><span>    chatter_ns_launch_arg = DeclareLaunchArgument(</span></span>
+<span class="line"><span>        &quot;chatter_ns&quot;, default_value=TextSubstitution(text=&quot;my/chatter/ns&quot;)</span></span>
+<span class="line"><span>    )</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    # include another launch file</span></span>
+<span class="line"><span>    launch_include = IncludeLaunchDescription(</span></span>
+<span class="line"><span>        PythonLaunchDescriptionSource(</span></span>
+<span class="line"><span>            os.path.join(</span></span>
+<span class="line"><span>                get_package_share_directory(&#39;demo_nodes_cpp&#39;),</span></span>
+<span class="line"><span>                &#39;launch/topics/talker_listener.launch.py&#39;))</span></span>
+<span class="line"><span>    )</span></span>
+<span class="line"><span>    # include another launch file in the chatter_ns namespace</span></span>
+<span class="line"><span>    launch_include_with_namespace = GroupAction(</span></span>
+<span class="line"><span>        actions=[</span></span>
+<span class="line"><span>            # push-ros-namespace to set namespace of included nodes</span></span>
+<span class="line"><span>            PushRosNamespace(LaunchConfiguration(&#39;chatter_ns&#39;)),</span></span>
+<span class="line"><span>            IncludeLaunchDescription(</span></span>
+<span class="line"><span>                PythonLaunchDescriptionSource(</span></span>
+<span class="line"><span>                    os.path.join(</span></span>
+<span class="line"><span>                        get_package_share_directory(&#39;demo_nodes_cpp&#39;),</span></span>
+<span class="line"><span>                        &#39;launch/topics/talker_listener.launch.py&#39;))</span></span>
+<span class="line"><span>            ),</span></span>
+<span class="line"><span>        ]</span></span>
+<span class="line"><span>    )</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    # start a turtlesim_node in the turtlesim1 namespace</span></span>
+<span class="line"><span>    turtlesim_node = Node(</span></span>
+<span class="line"><span>            package=&#39;turtlesim&#39;,</span></span>
+<span class="line"><span>            namespace=&#39;turtlesim1&#39;,</span></span>
+<span class="line"><span>            executable=&#39;turtlesim_node&#39;,</span></span>
+<span class="line"><span>            name=&#39;sim&#39;</span></span>
+<span class="line"><span>        )</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    # start another turtlesim_node in the turtlesim2 namespace</span></span>
+<span class="line"><span>    # and use args to set parameters</span></span>
+<span class="line"><span>    turtlesim_node_with_parameters = Node(</span></span>
+<span class="line"><span>            package=&#39;turtlesim&#39;,</span></span>
+<span class="line"><span>            namespace=&#39;turtlesim2&#39;,</span></span>
+<span class="line"><span>            executable=&#39;turtlesim_node&#39;,</span></span>
+<span class="line"><span>            name=&#39;sim&#39;,</span></span>
+<span class="line"><span>            parameters=[{</span></span>
+<span class="line"><span>                &quot;background_r&quot;: LaunchConfiguration(&#39;background_r&#39;),</span></span>
+<span class="line"><span>                &quot;background_g&quot;: LaunchConfiguration(&#39;background_g&#39;),</span></span>
+<span class="line"><span>                &quot;background_b&quot;: LaunchConfiguration(&#39;background_b&#39;),</span></span>
+<span class="line"><span>            }]</span></span>
+<span class="line"><span>        )</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    # perform remap so both turtles listen to the same command topic</span></span>
+<span class="line"><span>    forward_turtlesim_commands_to_second_turtlesim_node = Node(</span></span>
+<span class="line"><span>            package=&#39;turtlesim&#39;,</span></span>
+<span class="line"><span>            executable=&#39;mimic&#39;,</span></span>
+<span class="line"><span>            name=&#39;mimic&#39;,</span></span>
+<span class="line"><span>            remappings=[</span></span>
+<span class="line"><span>                (&#39;/input/pose&#39;, &#39;/turtlesim1/turtle1/pose&#39;),</span></span>
+<span class="line"><span>                (&#39;/output/cmd_vel&#39;, &#39;/turtlesim2/turtle1/cmd_vel&#39;),</span></span>
+<span class="line"><span>            ]</span></span>
+<span class="line"><span>        )</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    return LaunchDescription([</span></span>
+<span class="line"><span>        background_r_launch_arg,</span></span>
+<span class="line"><span>        background_g_launch_arg,</span></span>
+<span class="line"><span>        background_b_launch_arg,</span></span>
+<span class="line"><span>        chatter_ns_launch_arg,</span></span>
+<span class="line"><span>        launch_include,</span></span>
+<span class="line"><span>        launch_include_with_namespace,</span></span>
+<span class="line"><span>        turtlesim_node,</span></span>
+<span class="line"><span>        turtlesim_node_with_parameters,</span></span>
+<span class="line"><span>        forward_turtlesim_commands_to_second_turtlesim_node,</span></span>
+<span class="line"><span>    ])</span></span></code></pre></div><ul><li>编译工作空间</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>colcon build --packages-select learn_launch</span></span></code></pre></div><ul><li>终端刷新环境变量，运行launch文件</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 launch learn_launch complex_launch.py</span></span></code></pre></div><p>在宿主机的vnc上会显示两子小乌龟。</p><img src="/XIAOHUANG_BLOG/assets/image-20250905181104164.BVpvhLY1.png" alt="image-20250905181104164" style="zoom:50%;"><ul><li>启动键盘控制节点，并添加命名空间（因为我们在launch文件中启动节点时添加了命名空间）</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 run turtlesim turtle_teleop_key --ros-args -r __ns:=/turtlesim1</span></span></code></pre></div><ul><li>使用上下左右键控制海龟1运动，海龟2会完全模仿海龟1的行为</li></ul><img src="/XIAOHUANG_BLOG/assets/image-20250902150215135.DESz4zPI.png" alt="image-20250902150215135" style="zoom:50%;"><h2 id="xml实现与launch调用" tabindex="-1">xml实现与launch调用 <a class="header-anchor" href="#xml实现与launch调用" aria-label="Permalink to &quot;xml实现与launch调用&quot;">​</a></h2><ul><li>新建launch文件：在complex_launch.py同级目录下新建【complex_launch.xml】文件，添加如下内容：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>&lt;launch&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    &lt;!-- args that can be set from the command line or a default will be used --&gt;</span></span>
+<span class="line"><span>    &lt;arg name=&quot;background_r&quot; default=&quot;0&quot;/&gt;</span></span>
+<span class="line"><span>    &lt;arg name=&quot;background_g&quot; default=&quot;255&quot;/&gt;</span></span>
+<span class="line"><span>    &lt;arg name=&quot;background_b&quot; default=&quot;0&quot;/&gt;</span></span>
+<span class="line"><span>    &lt;arg name=&quot;chatter_ns&quot; default=&quot;my/chatter/ns&quot;/&gt;</span></span>
+<span class="line"><span>  </span></span>
+<span class="line"><span>    &lt;!-- include another launch file --&gt;</span></span>
+<span class="line"><span>    &lt;include file=&quot;$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener.launch.py&quot;/&gt;</span></span>
+<span class="line"><span>    &lt;!-- include another launch file in the chatter_ns namespace--&gt;</span></span>
+<span class="line"><span>    &lt;group&gt;</span></span>
+<span class="line"><span>      &lt;!-- push-ros-namespace to set namespace of included nodes --&gt;</span></span>
+<span class="line"><span>      &lt;push-ros-namespace namespace=&quot;$(var chatter_ns)&quot;/&gt;</span></span>
+<span class="line"><span>      &lt;include file=&quot;$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener.launch.py&quot;/&gt;</span></span>
+<span class="line"><span>    &lt;/group&gt;</span></span>
+<span class="line"><span>  </span></span>
+<span class="line"><span>    &lt;!-- start a turtlesim_node in the turtlesim1 namespace --&gt;</span></span>
+<span class="line"><span>    &lt;node pkg=&quot;turtlesim&quot; exec=&quot;turtlesim_node&quot; name=&quot;sim&quot; namespace=&quot;turtlesim1&quot;/&gt;</span></span>
+<span class="line"><span>    &lt;!-- start another turtlesim_node in the turtlesim2 namespace</span></span>
+<span class="line"><span>        and use args to set parameters --&gt;</span></span>
+<span class="line"><span>    &lt;node pkg=&quot;turtlesim&quot; exec=&quot;turtlesim_node&quot; name=&quot;sim&quot; namespace=&quot;turtlesim2&quot;&gt;</span></span>
+<span class="line"><span>      &lt;param name=&quot;background_r&quot; value=&quot;$(var background_r)&quot;/&gt;</span></span>
+<span class="line"><span>      &lt;param name=&quot;background_g&quot; value=&quot;$(var background_g)&quot;/&gt;</span></span>
+<span class="line"><span>      &lt;param name=&quot;background_b&quot; value=&quot;$(var background_b)&quot;/&gt;</span></span>
+<span class="line"><span>    &lt;/node&gt;</span></span>
+<span class="line"><span>    &lt;!-- perform remap so both turtles listen to the same command topic --&gt;</span></span>
+<span class="line"><span>    &lt;node pkg=&quot;turtlesim&quot; exec=&quot;mimic&quot; name=&quot;mimic&quot;&gt;</span></span>
+<span class="line"><span>      &lt;remap from=&quot;/input/pose&quot; to=&quot;/turtlesim1/turtle1/pose&quot;/&gt;</span></span>
+<span class="line"><span>      &lt;remap from=&quot;/output/cmd_vel&quot; to=&quot;/turtlesim2/turtle1/cmd_vel&quot;/&gt;</span></span>
+<span class="line"><span>    &lt;/node&gt;</span></span>
+<span class="line"><span>&lt;/launch&gt;</span></span></code></pre></div><ul><li>setup.py文件配置：需要配置编译文件，在编译时将我们.xml格式的launch文件拷贝到install安装目录下，ros系统才能找到我们的文件</li></ul><img src="/XIAOHUANG_BLOG/assets/image-20250905182956976.DDLL9tP_.png" alt="image-20250905182956976" style="zoom:67%;"><ul><li>编译功能包</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>colcon build --packages-select learn_launch</span></span></code></pre></div><ul><li>运行，终端输入：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 launch learn_launch complex_launch.xml</span></span></code></pre></div><ul><li>按照预期会出现两只小海龟，并且终端会打印日志信息</li></ul><img src="/XIAOHUANG_BLOG/assets/image-20250905181104164.BVpvhLY1.png" alt="image-20250905181104164" style="zoom:50%;"><ul><li>启动键盘控制节点，并添加命名空间</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 run turtlesim turtle_teleop_key --ros-args -r __ns:=/turtlesim1</span></span></code></pre></div><p>使用键盘控制启动海龟1进行运行，海龟2会完全模仿海龟1的行为</p><h2 id="yaml实现与launch调用" tabindex="-1">yaml实现与launch调用 <a class="header-anchor" href="#yaml实现与launch调用" aria-label="Permalink to &quot;yaml实现与launch调用&quot;">​</a></h2><ul><li>新建launch文件，在complex_launch.py同级目录下新建【complex_launch.yaml】文件，添加如下内容：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>launch:</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># args that can be set from the command line or a default will be used</span></span>
+<span class="line"><span>- arg:</span></span>
+<span class="line"><span>    name: &quot;background_r&quot;</span></span>
+<span class="line"><span>    default: &quot;0&quot;</span></span>
+<span class="line"><span>- arg:</span></span>
+<span class="line"><span>    name: &quot;background_g&quot;</span></span>
+<span class="line"><span>    default: &quot;255&quot;</span></span>
+<span class="line"><span>- arg:</span></span>
+<span class="line"><span>    name: &quot;background_b&quot;</span></span>
+<span class="line"><span>    default: &quot;0&quot;</span></span>
+<span class="line"><span>- arg:</span></span>
+<span class="line"><span>    name: &quot;chatter_ns&quot;</span></span>
+<span class="line"><span>    default: &quot;my/chatter/ns&quot;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># include another launch file</span></span>
+<span class="line"><span>- include:</span></span>
+<span class="line"><span>    file: &quot;$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener.launch.py&quot;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># include another launch file in the chatter_ns namespace</span></span>
+<span class="line"><span>- group:</span></span>
+<span class="line"><span>    - push-ros-namespace:</span></span>
+<span class="line"><span>        namespace: &quot;$(var chatter_ns)&quot;</span></span>
+<span class="line"><span>    - include:</span></span>
+<span class="line"><span>        file: &quot;$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener.launch.py&quot;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># start a turtlesim_node in the turtlesim1 namespace</span></span>
+<span class="line"><span>- node:</span></span>
+<span class="line"><span>    pkg: &quot;turtlesim&quot;</span></span>
+<span class="line"><span>    exec: &quot;turtlesim_node&quot;</span></span>
+<span class="line"><span>    name: &quot;sim&quot;</span></span>
+<span class="line"><span>    namespace: &quot;turtlesim1&quot;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># start another turtlesim_node in the turtlesim2 namespace and use args to set parameters</span></span>
+<span class="line"><span>- node:</span></span>
+<span class="line"><span>    pkg: &quot;turtlesim&quot;</span></span>
+<span class="line"><span>    exec: &quot;turtlesim_node&quot;</span></span>
+<span class="line"><span>    name: &quot;sim&quot;</span></span>
+<span class="line"><span>    namespace: &quot;turtlesim2&quot;</span></span>
+<span class="line"><span>    param:</span></span>
+<span class="line"><span>    -</span></span>
+<span class="line"><span>      name: &quot;background_r&quot;</span></span>
+<span class="line"><span>      value: &quot;$(var background_r)&quot;</span></span>
+<span class="line"><span>    -</span></span>
+<span class="line"><span>      name: &quot;background_g&quot;</span></span>
+<span class="line"><span>      value: &quot;$(var background_g)&quot;</span></span>
+<span class="line"><span>    -</span></span>
+<span class="line"><span>      name: &quot;background_b&quot;</span></span>
+<span class="line"><span>      value: &quot;$(var background_b)&quot;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># perform remap so both turtles listen to the same command topic</span></span>
+<span class="line"><span>- node:</span></span>
+<span class="line"><span>    pkg: &quot;turtlesim&quot;</span></span>
+<span class="line"><span>    exec: &quot;mimic&quot;</span></span>
+<span class="line"><span>    name: &quot;mimic&quot;</span></span>
+<span class="line"><span>    remap:</span></span>
+<span class="line"><span>    -</span></span>
+<span class="line"><span>        from: &quot;/input/pose&quot;</span></span>
+<span class="line"><span>        to: &quot;/turtlesim1/turtle1/pose&quot;</span></span>
+<span class="line"><span>    -</span></span>
+<span class="line"><span>        from: &quot;/output/cmd_vel&quot;</span></span>
+<span class="line"><span>        to: &quot;/turtlesim2/turtle1/cmd_vel&quot;</span></span></code></pre></div><ul><li>需要配置编译文件，在编译时将我们.yaml格式的launch文件拷贝到install安装目录下，ros系统才能找到我们的文件</li></ul><img src="/XIAOHUANG_BLOG/assets/image-20250905183832452.BvxLWPyN.png" alt="image-20250905183832452" style="zoom:50%;"><ul><li>编译功能包</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>colcon build --packages-select learn_launch</span></span></code></pre></div><ul><li>运行程序，刷新环境变量然后运行</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 launch learn_launch complex_launch.yaml</span></span></code></pre></div><ul><li>按照预期会出现两只小海龟，并且终端会打印日志信息</li></ul><img src="/XIAOHUANG_BLOG/assets/image-20250905181104164.BVpvhLY1.png" alt="image-20250905181104164" style="zoom:50%;"><ul><li>启动键盘控制节点，并添加命名空间</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 run turtlesim turtle_teleop_key --ros-args -r __ns:=/turtlesim1</span></span></code></pre></div><p>使用键盘控制启动海龟1进行运行，海龟2会完全模仿海龟1的行为</p><h1 id="ros2-tf2坐标变换" tabindex="-1">ROS2 TF2坐标变换 <a class="header-anchor" href="#ros2-tf2坐标变换" aria-label="Permalink to &quot;ROS2 TF2坐标变换&quot;">​</a></h1><h2 id="tf2简介" tabindex="-1">TF2简介 <a class="header-anchor" href="#tf2简介" aria-label="Permalink to &quot;TF2简介&quot;">​</a></h2><p>坐标系是我们非常熟悉的一个概念，也是机器人学中的重要基础，在一个完整的机器人系统中，会存在很多坐标系，这些坐标系之间的位置关系该如何管理？ROS给我们提供了一个坐标系的管理神器：TF2</p><p>TF系统参考文献：<a href="https://ieeexplore.ieee.org/abstract/document/6556373" target="_blank" rel="noreferrer">tf: The transform library | IEEE Conference Publication | IEEE Xplore</a></p><h2 id="机器人中的坐标系" tabindex="-1">机器人中的坐标系 <a class="header-anchor" href="#机器人中的坐标系" aria-label="Permalink to &quot;机器人中的坐标系&quot;">​</a></h2><p>在移动机器人系统中，坐标系一样至关重要，比如一个移动机器人的中心点是基坐标系Base Link，雷达所在的位置叫做雷达坐标系laser link，机器人要移动，里程计会累积位置，这个位置的参考系叫做里程计坐标系odom，里程计又会有累积误差和漂移，绝对位置的参考系叫做地图坐标系map。</p><p>一层一层坐标系之间关系复杂，有一些是相对固定的，也有一些是不断变化的，看似简单的坐标系也在空间范围内变得复杂，良好的坐标系管理系统就显得格外重要。</p><img src="/XIAOHUANG_BLOG/assets/image-20220528142112163.CBcvQWBj.png" alt="image-20220528142112163" style="zoom:33%;"><p>关于坐标系变换关系的基本理论，在每一本机器人学的教材中都会有讲解，可以分解为<strong>平移和旋转</strong>两个部分，通过一个四乘四的矩阵进行描述，在空间中画出坐标系，那两者之间的变换关系，其实就是向量的数学描述。</p><p>ROS中TF功能的底层原理，就是对这些数学变换进行了封装，详细的理论知识大家可以参考机器人学的教材，我们主要讲解TF坐标管理系统的使用方法。</p><h2 id="tf命令行操作" tabindex="-1">TF命令行操作 <a class="header-anchor" href="#tf命令行操作" aria-label="Permalink to &quot;TF命令行操作&quot;">​</a></h2><p>我们先通过两只小海龟的示例，了解下基于坐标系的一种机器人跟随算法。<strong>为方便演示，本节课程最好选择在虚拟机中操作</strong></p><h3 id="安装相关工具" tabindex="-1">安装相关工具 <a class="header-anchor" href="#安装相关工具" aria-label="Permalink to &quot;安装相关工具&quot;">​</a></h3><p>这个示例需要我们先安装相应的功能包、tf海龟模拟器案例、tf树可视化工具</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>sudo apt install ros-${ROS_DISTRO}-turtle-tf2-py ros-humble-tf2-tools</span></span>
+<span class="line"><span>sudo pip3 install transforms3d</span></span>
+<span class="line"><span>sudo apt install ros-${ROS_DISTRO}-rqt-tf-tree</span></span></code></pre></div><img src="/XIAOHUANG_BLOG/assets/image-20250905190746493.DOCgK6we.png" alt="image-20250905190746493" style="zoom:50%;"><h3 id="启动" tabindex="-1">启动 <a class="header-anchor" href="#启动" aria-label="Permalink to &quot;启动&quot;">​</a></h3><p>然后就可以通过一个launch文件启动，之后我们可以控制其中的一只小海龟，另外一只小海龟会自动跟随运动。</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 launch turtle_tf2_py turtle_tf2_demo.launch.py</span></span>
+<span class="line"><span>ros2 run turtlesim turtle_teleop_key</span></span></code></pre></div><p>当我们控制一只海龟运动时，另外一只海龟也会跟随运动。</p><img src="/XIAOHUANG_BLOG/assets/image-20231031174611320.Bje3sv01.png" alt="image-20231031174611320" style="zoom:50%;"><ul><li>查看TF树</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 run rqt_tf_tree rqt_tf_tree</span></span></code></pre></div><p>可以在rqt窗口中看到TF变换树</p><img src="/XIAOHUANG_BLOG/assets/image-20231031174844745.BY-z90nA.png" alt="image-20231031174844745" style="zoom:50%;"><ul><li>查询坐标变换信息：只看到坐标系的结构还不行，如果我们想要知道某两个坐标系之间的具体关系，可以通过tf2_echo这个工具查看：</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 run tf2_ros tf2_echo turtle2 turtle1</span></span></code></pre></div><p>运行成功后，终端中就会循环打印坐标系的变换数值了</p><img src="/XIAOHUANG_BLOG/assets/image-20231031174933242.CwIMGhnm.png" alt="image-20231031174933242" style="zoom:67%;"><ul><li>坐标系可视化：运行rviz2，然后添加TF显示插件</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>rviz2</span></span></code></pre></div><p>rivz2中设置参考坐标系为：world，添加TF显示，再让小海龟动起来，Rviz中的坐标轴就会开始运动，这样是不是更加直观了呢！</p><img src="/XIAOHUANG_BLOG/assets/image-20231031175440027.D_2u39SC.png" alt="image-20231031175440027" style="zoom:33%;"><h2 id="静态坐标变换" tabindex="-1">静态坐标变换 <a class="header-anchor" href="#静态坐标变换" aria-label="Permalink to &quot;静态坐标变换&quot;">​</a></h2><p>所谓静态坐标变换，是指两个坐标系之间的相对位置是固定的。如雷达和base_link之间的位置是固定的。</p><p>示例：<strong>为方便演示，本节课程最好选择在虚拟机中操作</strong></p><h3 id="发布a到b的位姿" tabindex="-1">发布A到B的位姿 <a class="header-anchor" href="#发布a到b的位姿" aria-label="Permalink to &quot;发布A到B的位姿&quot;">​</a></h3><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 run tf2_ros static_transform_publisher 0 0 3 0 0 3.14 A B</span></span></code></pre></div><img src="/XIAOHUANG_BLOG/assets/image-20250905190855196.C3tn7Qvh.png" alt="image-20250905190855196" style="zoom:50%;"><h3 id="监听-获取tf关系" tabindex="-1">监听/获取TF关系 <a class="header-anchor" href="#监听-获取tf关系" aria-label="Permalink to &quot;监听/获取TF关系&quot;">​</a></h3><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 run tf2_ros tf2_echo A B</span></span></code></pre></div><h3 id="rivz可视化" tabindex="-1">rivz可视化 <a class="header-anchor" href="#rivz可视化" aria-label="Permalink to &quot;rivz可视化&quot;">​</a></h3><ul><li>运行rviz2，然后添加TF显示插件</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>rviz2</span></span></code></pre></div><img src="/XIAOHUANG_BLOG/assets/image-20231031180746331.UaCK-BiA.png" alt="image-20231031180746331" style="zoom:33%;"><h2 id="tf发布实现案例" tabindex="-1">TF发布实现案例 <a class="header-anchor" href="#tf发布实现案例" aria-label="Permalink to &quot;TF发布实现案例&quot;">​</a></h2><ul><li>新建功能包</li></ul><ol><li>在工作空间的src目录下新建功能包用于存放我们的文件</li></ol><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 pkg create pkg_tf --build-type ament_python --dependencies rclpy --node-name turtle_tf_broadcaster</span></span></code></pre></div><p>执行完上述命令，会创建pkg_tf功能包，同时会创建一个turtle_tf_broadcaster的节点，并且已经配置好相关的配置文件，在【turtle_tf_broadcaster.py】文件中添加如下代码：</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>import rclpy                                       # ROS2 Python接口库</span></span>
+<span class="line"><span>from rclpy.node import Node                        # ROS2 节点类</span></span>
+<span class="line"><span>from geometry_msgs.msg import TransformStamped     # 坐标变换消息</span></span>
+<span class="line"><span>import tf_transformations                          # TF坐标变换库</span></span>
+<span class="line"><span>from tf2_ros import TransformBroadcaster           # TF坐标变换广播器</span></span>
+<span class="line"><span>from turtlesim.msg import Pose                     # turtlesim小海龟位置消息</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>class TurtleTFBroadcaster(Node):</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def __init__(self, name):</span></span>
+<span class="line"><span>        super().__init__(name)                                # ROS2节点父类初始化</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        self.declare_parameter(&#39;turtlename&#39;, &#39;turtle&#39;)        # 创建一个海龟名称的参数</span></span>
+<span class="line"><span>        self.turtlename = self.get_parameter(                 # 优先使用外部设置的参数值，否则用默认值</span></span>
+<span class="line"><span>            &#39;turtlename&#39;).get_parameter_value().string_value</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        self.tf_broadcaster = TransformBroadcaster(self)      # 创建一个TF坐标变换的广播对象并初始化</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        self.subscription = self.create_subscription(         # 创建一个订阅者，订阅海龟的位置消息</span></span>
+<span class="line"><span>            Pose,</span></span>
+<span class="line"><span>            f&#39;/{self.turtlename}/pose&#39;,                       # 使用参数中获取到的海龟名称</span></span>
+<span class="line"><span>            self.turtle_pose_callback, 1)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def turtle_pose_callback(self, msg):                              # 创建一个处理海龟位置消息的回调函数，将位置消息转变成坐标变换</span></span>
+<span class="line"><span>        transform = TransformStamped()                                # 创建一个坐标变换的消息对象</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        transform.header.stamp = self.get_clock().now().to_msg()      # 设置坐标变换消息的时间戳</span></span>
+<span class="line"><span>        transform.header.frame_id = &#39;world&#39;                           # 设置一个坐标变换的源坐标系</span></span>
+<span class="line"><span>        transform.child_frame_id = self.turtlename                    # 设置一个坐标变换的目标坐标系</span></span>
+<span class="line"><span>        transform.transform.translation.x = msg.x                     # 设置坐标变换中的X、Y、Z向的平移</span></span>
+<span class="line"><span>        transform.transform.translation.y = msg.y</span></span>
+<span class="line"><span>        transform.transform.translation.z = 0.0</span></span>
+<span class="line"><span>        q = tf_transformations.quaternion_from_euler(0, 0, msg.theta) # 将欧拉角转换为四元数（roll, pitch, yaw）</span></span>
+<span class="line"><span>        transform.transform.rotation.x = q[0]                         # 设置坐标变换中的X、Y、Z向的旋转（四元数）</span></span>
+<span class="line"><span>        transform.transform.rotation.y = q[1]</span></span>
+<span class="line"><span>        transform.transform.rotation.z = q[2]</span></span>
+<span class="line"><span>        transform.transform.rotation.w = q[3]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        # Send the transformation</span></span>
+<span class="line"><span>        self.tf_broadcaster.sendTransform(transform)     # 广播坐标变换，海龟位置变化后，将及时更新坐标变换信息</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def main(args=None):</span></span>
+<span class="line"><span>    rclpy.init(args=args)                                # ROS2 Python接口初始化</span></span>
+<span class="line"><span>    node = TurtleTFBroadcaster(&quot;turtle_tf_broadcaster&quot;)  # 创建ROS2节点对象并进行初始化</span></span>
+<span class="line"><span>    rclpy.spin(node)                                     # 循环等待ROS2退出</span></span>
+<span class="line"><span>    node.destroy_node()                                  # 销毁节点对象</span></span>
+<span class="line"><span>    rclpy.shutdown()                                     # 关闭ROS2 Python接口</span></span></code></pre></div><p>2、接下来在turtle_tf_broadcaster.py同级目录下新建【turtle_following.py】文件，添加如下代码：</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>import math</span></span>
+<span class="line"><span>import rclpy                                              # ROS2 Python接口库</span></span>
+<span class="line"><span>from rclpy.node import Node                               # ROS2 节点类</span></span>
+<span class="line"><span>import tf_transformations                                 # TF坐标变换库</span></span>
+<span class="line"><span>from tf2_ros import TransformException                    # TF左边变换的异常类</span></span>
+<span class="line"><span>from tf2_ros.buffer import Buffer                         # 存储坐标变换信息的缓冲类</span></span>
+<span class="line"><span>from tf2_ros.transform_listener import TransformListener  # 监听坐标变换的监听器类</span></span>
+<span class="line"><span>from geometry_msgs.msg import Twist                       # ROS2 速度控制消息</span></span>
+<span class="line"><span>from turtlesim.srv import Spawn                           # 海龟生成的服务接口</span></span>
+<span class="line"><span>class TurtleFollowing(Node):</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def __init__(self, name):</span></span>
+<span class="line"><span>        super().__init__(name)                                      # ROS2节点父类初始化</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        self.declare_parameter(&#39;source_frame&#39;, &#39;turtle1&#39;)           # 创建一个源坐标系名的参数</span></span>
+<span class="line"><span>        self.source_frame = self.get_parameter(                     # 优先使用外部设置的参数值，否则用默认值</span></span>
+<span class="line"><span>            &#39;source_frame&#39;).get_parameter_value().string_value</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        self.tf_buffer = Buffer()                                   # 创建保存坐标变换信息的缓冲区</span></span>
+<span class="line"><span>        self.tf_listener = TransformListener(self.tf_buffer, self)  # 创建坐标变换的监听器</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        self.spawner = self.create_client(Spawn, &#39;spawn&#39;)           # 创建一个请求产生海龟的客户端</span></span>
+<span class="line"><span>        self.turtle_spawning_service_ready = False                  # 是否已经请求海龟生成服务的标志位</span></span>
+<span class="line"><span>        self.turtle_spawned = False                                 # 海龟是否产生成功的标志位</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        self.publisher = self.create_publisher(Twist, &#39;turtle2/cmd_vel&#39;, 1) # 创建跟随运动海龟的速度话题</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        self.timer = self.create_timer(1.0, self.on_timer)         # 创建一个固定周期的定时器，控制跟随海龟的运动</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def on_timer(self):</span></span>
+<span class="line"><span>        from_frame_rel = self.source_frame                         # 源坐标系</span></span>
+<span class="line"><span>        to_frame_rel   = &#39;turtle2&#39;                                 # 目标坐标系</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        if self.turtle_spawning_service_ready:                     # 如果已经请求海龟生成服务</span></span>
+<span class="line"><span>            if self.turtle_spawned:                                # 如果跟随海龟已经生成</span></span>
+<span class="line"><span>                try:</span></span>
+<span class="line"><span>                    now = rclpy.time.Time()                        # 获取ROS系统的当前时间</span></span>
+<span class="line"><span>                    trans = self.tf_buffer.lookup_transform(       # 监听当前时刻源坐标系到目标坐标系的坐标变换</span></span>
+<span class="line"><span>                        to_frame_rel,</span></span>
+<span class="line"><span>                        from_frame_rel,</span></span>
+<span class="line"><span>                        now)</span></span>
+<span class="line"><span>                except TransformException as ex:                   # 如果坐标变换获取失败，进入异常报告</span></span>
+<span class="line"><span>                    self.get_logger().info(</span></span>
+<span class="line"><span>                        f&#39;Could not transform {to_frame_rel} to {from_frame_rel}: {ex}&#39;)</span></span>
+<span class="line"><span>                    return</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>                msg = Twist()                                      # 创建速度控制消息</span></span>
+<span class="line"><span>                scale_rotation_rate = 1.0                          # 根据海龟角度，计算角速度</span></span>
+<span class="line"><span>                msg.angular.z = scale_rotation_rate * math.atan2(</span></span>
+<span class="line"><span>                    trans.transform.translation.y,</span></span>
+<span class="line"><span>                    trans.transform.translation.x)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>                scale_forward_speed = 0.5                          # 根据海龟距离，计算线速度</span></span>
+<span class="line"><span>                msg.linear.x = scale_forward_speed * math.sqrt(</span></span>
+<span class="line"><span>                    trans.transform.translation.x ** 2 +</span></span>
+<span class="line"><span>                    trans.transform.translation.y ** 2)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>                self.publisher.publish(msg)                        # 发布速度指令，海龟跟随运动</span></span>
+<span class="line"><span>            else:                                                  # 如果跟随海龟没有生成</span></span>
+<span class="line"><span>                if self.result.done():                             # 查看海龟是否生成</span></span>
+<span class="line"><span>                    self.get_logger().info(</span></span>
+<span class="line"><span>                        f&#39;Successfully spawned {self.result.result().name}&#39;)</span></span>
+<span class="line"><span>                    self.turtle_spawned = True                     </span></span>
+<span class="line"><span>                else:                                              # 依然没有生成跟随海龟</span></span>
+<span class="line"><span>                    self.get_logger().info(&#39;Spawn is not finished&#39;)</span></span>
+<span class="line"><span>        else:                                                      # 如果没有请求海龟生成服务</span></span>
+<span class="line"><span>            if self.spawner.service_is_ready():                    # 如果海龟生成服务器已经准备就绪</span></span>
+<span class="line"><span>                request = Spawn.Request()                          # 创建一个请求的数据</span></span>
+<span class="line"><span>                request.name = &#39;turtle2&#39;                           # 设置请求数据的内容，包括海龟名、xy位置、姿态</span></span>
+<span class="line"><span>                request.x = float(4)</span></span>
+<span class="line"><span>                request.y = float(2)</span></span>
+<span class="line"><span>                request.theta = float(0)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>                self.result = self.spawner.call_async(request)     # 发送服务请求</span></span>
+<span class="line"><span>                self.turtle_spawning_service_ready = True          # 设置标志位，表示已经发送请求</span></span>
+<span class="line"><span>            else:</span></span>
+<span class="line"><span>                self.get_logger().info(&#39;Service is not ready&#39;)     # 海龟生成服务器还没准备就绪的提示</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def main(args=None):</span></span>
+<span class="line"><span>    rclpy.init(args=args)                       # ROS2 Python接口初始化</span></span>
+<span class="line"><span>    node = TurtleFollowing(&quot;turtle_following&quot;)  # 创建ROS2节点对象并进行初始化</span></span>
+<span class="line"><span>    rclpy.spin(node)                            # 循环等待ROS2退出</span></span>
+<span class="line"><span>    node.destroy_node()                         # 销毁节点对象</span></span>
+<span class="line"><span>    rclpy.shutdown()                            # 关闭ROS2 Python接口</span></span></code></pre></div><p>3、在pkg_tf功能包下新建launch文件夹，在launch文件夹内新建【turtle_following.launch.py】文件，添加如下内容：</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>from launch import LaunchDescription</span></span>
+<span class="line"><span>from launch.actions import DeclareLaunchArgument</span></span>
+<span class="line"><span>from launch.substitutions import LaunchConfiguration</span></span>
+<span class="line"><span>from launch_ros.actions import Node</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def generate_launch_description():</span></span>
+<span class="line"><span>    </span></span>
+<span class="line"><span>    return LaunchDescription([</span></span>
+<span class="line"><span>        DeclareLaunchArgument(&#39;source_frame&#39;, default_value=&#39;turtle1&#39;, description=&#39;Target frame name.&#39;),</span></span>
+<span class="line"><span>        Node(</span></span>
+<span class="line"><span>            package=&#39;turtlesim&#39;,</span></span>
+<span class="line"><span>            executable=&#39;turtlesim_node&#39;,</span></span>
+<span class="line"><span>        ),</span></span>
+<span class="line"><span>        Node(</span></span>
+<span class="line"><span>            package=&#39;pkg_tf&#39;,</span></span>
+<span class="line"><span>            executable=&#39;turtle_tf_broadcaster&#39;,</span></span>
+<span class="line"><span>            name=&#39;broadcaster1&#39;,</span></span>
+<span class="line"><span>            parameters=[</span></span>
+<span class="line"><span>                {&#39;turtlename&#39;: &#39;turtle1&#39;}</span></span>
+<span class="line"><span>            ]</span></span>
+<span class="line"><span>        ),</span></span>
+<span class="line"><span>        Node(</span></span>
+<span class="line"><span>            package=&#39;pkg_tf&#39;,</span></span>
+<span class="line"><span>            executable=&#39;turtle_tf_broadcaster&#39;,</span></span>
+<span class="line"><span>            name=&#39;broadcaster2&#39;,</span></span>
+<span class="line"><span>            parameters=[</span></span>
+<span class="line"><span>                {&#39;turtlename&#39;: &#39;turtle2&#39;}</span></span>
+<span class="line"><span>            ]</span></span>
+<span class="line"><span>        ),</span></span>
+<span class="line"><span>        Node(</span></span>
+<span class="line"><span>            package=&#39;pkg_tf&#39;,</span></span>
+<span class="line"><span>            executable=&#39;turtle_following&#39;,</span></span>
+<span class="line"><span>            name=&#39;listener&#39;,</span></span>
+<span class="line"><span>            parameters=[</span></span>
+<span class="line"><span>                {&#39;source_frame&#39;: LaunchConfiguration(&#39;source_frame&#39;)}</span></span>
+<span class="line"><span>            ]</span></span>
+<span class="line"><span>        ), </span></span>
+<span class="line"><span>    ])</span></span></code></pre></div><ul><li><p>setup.py中配置</p></li><li><p>导入相关库</p></li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>import os</span></span>
+<span class="line"><span>from glob import glob</span></span></code></pre></div><ul><li>添加turtle_following节点信息，并添加一下命令将launch文件拷贝到install中共享目录中</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>(os.path.join(&#39;share&#39;,package_name,&#39;launch&#39;),glob(&#39;launch/*&#39;)),</span></span></code></pre></div><img src="/XIAOHUANG_BLOG/assets/image-20250905192526237.Dd-dPzNQ.png" alt="image-20250905192526237" style="zoom:50%;"><ul><li>编译功能包</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>colcon build --packages-select pkg_tf</span></span></code></pre></div><ul><li>刷新终端环境变量，然后运行</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 launch pkg_tf turtle_following.launch.py</span></span></code></pre></div><ul><li>启动海龟键盘控制节点，控制第一只小海龟运动，第二只海龟会自动跟随</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>ros2 run turtlesim turtle_teleop_key</span></span></code></pre></div><p>在此终端内按键盘的上下左右键可以控制其中的一个小乌龟运动，然后另外一个小乌龟会跟着运动直到它们重合。</p><h2 id="进阶内容" tabindex="-1">进阶内容 <a class="header-anchor" href="#进阶内容" aria-label="Permalink to &quot;进阶内容&quot;">​</a></h2><ul><li><p>理解TF的跨时间维度变换能力</p><p>Buffer能够通过缓冲区自动缓存过去10s内TF系统内所有的TF变换关系（可以通过Buffer构造参数自己设置任意的缓存时长），缓冲区内所有的变换以时间戳为单位，所有变换都是连续可追溯的，即使两个坐标系处于不同的时间点，也能查找出之间的坐标变换关系，这一点可以参考设计TF系统的参考文献，有详细的原理讲解（文献在本节课程文件夹下、或者通过本节开头时的链接）</p></li></ul><p><img src="/XIAOHUANG_BLOG/assets/image-20250905193230441.Cg4enpkD.png" alt="image-20250905193230441" loading="lazy"></p><ul><li>以下是对我们上述海龟跟随案例的补充，红色箭头表示可以跨时间查找不同时间点的两个坐标系之间的变换</li></ul><p><img src="/XIAOHUANG_BLOG/assets/image-20250905193837592.CajhfwK1.png" alt="image-20250905193837592" loading="lazy"></p></div></div></main><footer class="VPDocFooter" data-v-e6f2a212 data-v-1bcd8184><!--[--><!--]--><!----><!----></footer><!--[--><!--[--><!--[--><div style="margin-top:24px;"><!----></div><!--]--><!--]--><!--]--></div></div></div><!--[--><!--]--></div></div><footer class="VPFooter" data-v-d8b57b2d data-v-566314d4><div class="container" data-v-566314d4><!----><p class="copyright" data-v-566314d4>Copyright © 2025-present 小黄</p></div></footer><!--[--><!--]--></div></div>
+    <script>window.__VP_HASH_MAP__=JSON.parse("{\"api-examples.md\":\"nFZcMRwR\",\"docs_硬件资料_linux笔记_linux常用代码指令_linux中安装miniconda.md\":\"C8EDxlU7\",\"docs_硬件资料_linux笔记_linux常用代码指令_linux常用代码指令.md\":\"BDC46kd8\",\"docs_硬件资料_微控制器mcu_stm32f407zgt6_pcb设计_stm32f407zgt6_pcb.md\":\"BBuIcTz5\",\"docs_硬件资料_微控制器mcu_stm32f407zgt6_基础资料_stm32f407zgt6.md\":\"CZIz3rhy\",\"docs_硬件资料_微控制器mcu_ti_mspm0g3507_基础资料_ti_mspm0.md\":\"CnghvjQo\",\"docs_硬件资料_旋翼无人机_px4_egoplanner_ros2教程_px4_egoplanner_ros2教程.md\":\"DsDtMUsO\",\"docs_硬件资料_旋翼无人机_px4_simulink教程_px4_simulink教程.md\":\"Bu5GMYYb\",\"docs_硬件资料_旋翼无人机_px4与ubuntu教程_px4_ubuntu教程.md\":\"BP5Rb_HL\",\"docs_硬件资料_旋翼无人机_windows下px4与simulink配置教程_windows下px4与simulink配置教程.md\":\"jYqPEA2z\",\"docs_硬件资料_树莓派_树莓派.md\":\"D-B6h5Kc\",\"docs_硬件资料_驱动代码_光流计_mtf01光流计_mtf01光流计.md\":\"BMQ940F2\",\"docs_硬件资料_驱动代码_力传感器_s型拉压传感器与hx711驱动_s型拉压传感器与hx711.md\":\"CoqrZDXv\",\"docs_硬件资料_驱动代码_摄像头_openmv_openmv.md\":\"NeKaKlbY\",\"docs_硬件资料_驱动电路_直流转直流_ams1117-3.3的_5v转_3v3线性稳压电路.md\":\"-m0F3Jwv\",\"docs_算法笔记_优化算法_带遗忘因子的递推最小二乘算法.md\":\"D8Ogki5i\",\"docs_算法笔记_优化算法_最小二乘算法ols.md\":\"BktgEd1a\",\"docs_算法笔记_优化算法_递推最小二乘算法rls.md\":\"BE4xsH6x\",\"docs_算法笔记_强化学习算法_强化学习算法总览_强化学习算法总览.md\":\"CDFZ23cI\",\"docs_算法笔记_控制系统算法_mpc算法_mpc.md\":\"CR-CIlvO\",\"docs_算法笔记_数学基础_时域频域转换公式.md\":\"DIG4YpKu\",\"docs_算法笔记_数学基础_泰勒展开.md\":\"CiwKw5A1\",\"docs_算法笔记_数据融合算法_mashony算法.md\":\"WBtoH9bB\",\"docs_算法笔记_数据融合算法_卡尔曼滤波算法.md\":\"CCAi49DV\",\"docs_算法笔记_物理基础_加速度合成定理.md\":\"CM7-iq1h\",\"docs_论文阅读_信息融合_分布式最小误差熵卡尔曼滤波zhenyufeng_分布式最小误差熵卡尔曼滤波zhenyufeng.md\":\"B_gzq1jM\",\"docs_论文阅读_预印本_基于视觉的无人机通过可微模拟端到端学习穿越不规则间隙_基于视觉的无人机通过可微模拟端到端学习穿越不规则间隙.md\":\"BeKIU8JJ\",\"docs_软件资料_python小软件_pdf图片压缩工具.md\":\"DqpCzdch\",\"docs_软件资料_python小软件_pdf拼接工具.md\":\"CTPetrdk\",\"docs_软件资料_常用软件_md笔记_typora使用帮助.md\":\"CS2gpcvG\",\"docs_软件资料_编程资料_linux相关_githubssh配置教程_githubssh配置教程.md\":\"-I_9DroW\",\"docs_软件资料_编程资料_ros2基础_ros2详细笔记_part1_ros2工作空间与功能包.md\":\"CmnsLPLU\",\"docs_软件资料_编程资料_ros2基础_ros2详细笔记_part2_ros2节点话题服务接口launchtf.md\":\"Dc_cPlqY\",\"docs_软件资料_编程资料_ros2基础_ros2详细笔记_part3_ros2元功能包dds.md\":\"D47dKETP\",\"docs_软件资料_编程资料_ros2基础_ros2详细笔记_part4_ros2api.md\":\"DbrrH9WI\",\"docs_软件资料_编程资料_ros2基础_ros笔记.md\":\"DHVIhByI\",\"index.md\":\"fSEOIW3k\",\"markdown-examples.md\":\"Bl6dp7wy\",\"xiaohuang_mdwork_updatatips_updatalist.md\":\"BFW5rFmv\",\"xiaohuang_mdwork_个人主页_个人主页.md\":\"CpaVeCvy\",\"xiaohuang_mdwork_前端导航_前端导航目录.md\":\"D7VRNH-_\",\"xiaohuang_mdwork_前端导航_索引_zlibrary镜像.md\":\"CaDew8vf\",\"xiaohuang_mdwork_快速软件_md文档提取工具_markdown文本自动提取软件.md\":\"DFYZbsco\",\"xiaohuang_mdwork_测试_test.md\":\"BfiMNDAd\",\"xiaohuang_mdwork_测试_test2.md\":\"DNx6wTdH\",\"xiaohuang_mdwork_测试_test3.md\":\"vK9elGTr\",\"xiaohuang_mdwork_硬件资料_硬件资料主页内容_树莓派.md\":\"CxIxRjQe\",\"xiaohuang_mdwork_硬件资料_硬件资料主页目录.md\":\"CuJSraD7\",\"xiaohuang_mdwork_算法笔记_算法笔记主页目录.md\":\"C63Hbnb6\",\"xiaohuang_mdwork_联系我们_联系我们.md\":\"ruEC9t9j\",\"xiaohuang_mdwork_论文阅读_论文阅读主页目录.md\":\"8LWGcE9l\",\"xiaohuang_mdwork_语法笔记_python代码语法.md\":\"UVmdtI8D\",\"xiaohuang_mdwork_软件资料_软件资料目录.md\":\"Be5ax5hW\"}");window.__VP_SITE_DATA__=JSON.parse("{\"lang\":\"zh-CN\",\"dir\":\"ltr\",\"title\":\"小黄同学的在线笔记\",\"description\":\"FOR IDEA\",\"base\":\"/XIAOHUANG_BLOG/\",\"head\":[],\"router\":{\"prefetchLinks\":true},\"appearance\":\"dark\",\"themeConfig\":{\"outlineTitle\":\"目录\",\"outline\":[1,6],\"sidebar\":false,\"aside\":\"left\",\"logo\":\"/icons/网站/笔记本.png\",\"nav\":[{\"text\":\"首页\",\"link\":\"/\"},{\"text\":\"前端导航\",\"link\":\"/xiaohuang_mdwork/前端导航/前端导航目录.md\"},{\"text\":\"功能网站\",\"items\":[{\"text\":\"svg转icon\",\"link\":\"https://cdkm.com/cn/svg-to-ico\"},{\"text\":\"阿里icon库\",\"link\":\"https://www.iconfont.cn/\"},{\"text\":\"高保真图\",\"link\":\"https://pixabay.com/zh/\"},{\"text\":\"建站速通\",\"link\":\"https://docs.bugdesigner.cn/README.html#%E9%83%A8%E7%BD%B2%E6%AD%A5%E9%AA%A4\"}]},{\"text\":\"语法笔记\",\"items\":[{\"text\":\"Python\",\"link\":\"/xiaohuang_mdwork/语法笔记/Python代码语法.md\"}]},{\"text\":\"算法笔记\",\"link\":\"/xiaohuang_mdwork/算法笔记/算法笔记主页目录.md\"}],\"search\":{\"provider\":\"local\",\"options\":{\"translations\":{\"button\":{\"buttonText\":\"搜索文档\",\"buttonAriaLabel\":\"搜索文档\"},\"modal\":{\"noResultsText\":\"无法找到结果\",\"resetButtonTitle\":\"清除查询条件\",\"footer\":{\"selectText\":\"选择\",\"navigateText\":\"切换\"}}}}},\"socialLinks\":[{\"icon\":{\"svg\":\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"24\\\" height=\\\"24\\\" viewBox=\\\"0 0 24 24\\\" fill=\\\"currentColor\\\"><path d=\\\"M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z\\\"/></svg>\"},\"link\":\"mailto:2727678986@qq.com\",\"ariaLabel\":\"发送邮件\"},{\"icon\":\"github\",\"link\":\"https://github.com/xiaohuangstudent\"},{\"icon\":{\"svg\":\"<svg t=\\\"1751117659737\\\" class=\\\"icon\\\" viewBox=\\\"0 0 1024 1024\\\" version=\\\"1.1\\\" xmlns=\\\"http://www.w3.org/2000/svg\\\" p-id=\\\"1503\\\" width=\\\"64\\\" height=\\\"64\\\"><path d=\\\"M729.32864 373.94944c-9.79456-5.94432-19.06176-6.784-19.14368-6.784l-1.06496-0.0512c-57.20064-3.8656-121.1648-5.83168-190.12608-5.83168l-13.98784 0.00512c-68.95616 0-132.92544 1.96096-190.12096 5.83168l-1.06496 0.0512c-0.08192 0-9.34912 0.83968-19.14368 6.784-15.04768 9.12896-24.27392 25.94816-27.4176 49.9712-10.07104 76.91264-4.38272 173.64992 0.18944 251.392 2.93888 49.96608 33.408 62.45888 85.04832 67.1488 10.78272 0.98816 69.08928 5.86752 159.50848 5.89312v-0.00512c90.4192-0.02048 148.72576-4.90496 159.5136-5.888 51.64032-4.68992 82.10944-17.18272 85.0432-67.1488 4.57728-77.74208 10.26048-174.47936 0.18944-251.392-3.1488-24.02816-12.37504-40.84736-27.42272-49.97632z m-390.9888 172.71808a23.64928 23.64928 0 0 1-31.68768-10.84416 23.68 23.68 0 0 1 10.84416-31.68768c2.03776-1.00352 50.69312-24.72448 110.5408-43.06432a23.68 23.68 0 1 1 13.88032 45.29152c-56.2944 17.24928-103.11168 40.07424-103.5776 40.30464z m268.89728 35.88608c-0.44032 2.23232-11.26912 54.64064-50.93888 54.64064-21.44256 0-36.10112-14.04928-44.98432-26.77248-8.69376 12.70784-22.80448 26.77248-42.65472 26.77248-35.5328 0-50.13504-48.26624-51.68128-53.77024a11.3664 11.3664 0 0 1 21.87776-6.1696c2.74944 9.6512 14.1312 37.20192 29.7984 37.20192 16.37376 0 28.89216-23.64416 31.98464-31.92832a11.37152 11.37152 0 0 1 10.6496-7.38816h0.06144c4.76672 0.03072 9.0112 3.02592 10.62912 7.50592 0.10752 0.28672 11.96544 31.81568 34.31424 31.81568 20.864 0 28.56448-35.95264 28.64128-36.32128a11.34592 11.34592 0 0 1 13.35808-8.93952 11.36128 11.36128 0 0 1 8.94464 13.35296z m110.11584-46.73536a23.68 23.68 0 0 1-31.68256 10.84416c-0.47104-0.2304-47.47264-23.1168-103.57248-40.30976a23.69024 23.69024 0 0 1-15.70816-29.58336 23.66976 23.66976 0 0 1 29.57824-15.70304c59.84768 18.33984 108.49792 42.0608 110.55104 43.06432a23.68 23.68 0 0 1 10.83392 31.68768z\\\" fill=\\\"#F16C8D\\\" p-id=\\\"1504\\\"></path><path d=\\\"M849.92 51.2H174.08c-67.8656 0-122.88 55.0144-122.88 122.88v675.84c0 67.87072 55.0144 122.88 122.88 122.88h675.84c67.87072 0 122.88-55.00928 122.88-122.88V174.08c0-67.86048-55.00928-122.88-122.88-122.88z m-36.60288 627.45088c-2.62656 44.57984-21.82144 78.63296-55.51616 98.48832-25.68192 15.13472-54.17472 19.48672-81.13664 21.9392-32.45568 2.94912-92.71808 6.09792-164.66432 6.1184-71.94112-0.02048-132.20864-3.16416-164.66432-6.1184-26.96192-2.45248-55.45472-6.80448-81.13152-21.9392-33.69472-19.85536-52.8896-53.90336-55.51104-98.4832-4.70528-80.13312-10.5728-179.85536 0.19456-262.10816C221.5424 335.16544 280.99072 311.57248 311.5008 310.37952a2482.64192 2482.64192 0 0 1 81.42336-4.08576c-7.53664-8.53504-19.88096-23.3216-28.81536-38.11328-13.73696-22.73792 8.52992-41.68704 8.52992-41.68704s23.68-20.36736 44.52864 5.21216c15.69792 19.26656 38.37952 55.99744 48.61952 72.95488l53.20704-0.21504c13.2608 0 26.33216 0.07168 39.2192 0.21504 10.24-16.95744 32.9216-53.6832 48.61952-72.95488 20.84352-25.57952 44.52864-5.21216 44.52864-5.21216s22.26176 18.94912 8.5248 41.68704c-8.9344 14.79168-21.27872 29.57824-28.81536 38.11328 28.35968 0.97792 55.56224 2.33984 81.42336 4.08064 30.5152 1.19808 89.9584 24.79104 100.61312 106.17344 10.7776 82.24768 4.9152 181.96992 0.20992 262.10304z\\\" fill=\\\"#F16C8D\\\" p-id=\\\"1505\\\"></path></svg>\"},\"link\":\"https://space.bilibili.com/3493126956124793?spm_id_from=333.788.0.0\"}],\"footer\":{\"copyright\":\"Copyright © 2025-present 小黄\"}},\"locales\":{},\"scrollOffset\":134,\"cleanUrls\":false}");</script>
+    
+  </body>
+</html>
