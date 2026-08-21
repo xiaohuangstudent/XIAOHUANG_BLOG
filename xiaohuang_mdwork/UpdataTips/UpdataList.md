@@ -56,3 +56,8 @@
 > 新增Part3\_元功能包、DDS，链接为[Part3\_元功能包、DDS](/docs/软件资料/编程资料/ROS2基础/ROS2详细笔记/Part3_ROS2元功能包DDS.md)
 >
 > 新增Part4_ROS2的时间API、常用命令、Rviz2、Rqt、bag、URDF、Gazebo，链接为[Part4_ROS2的时间API、常用命令、Rviz2、Rqt、bag、URDF、Gazebo](/docs/软件资料/编程资料/ROS2基础/ROS2详细笔记/Part4_ROS2API.md)
+
+## 2026-08-21 新增标准齿轮在线计算器
+
+> [!Tip]
+> 新增标准齿轮在线计算器，链接为 [标准齿轮在线计算](/docs/软件资料/常用软件/齿轮计算/标准齿轮在线计算.md)

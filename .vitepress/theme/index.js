@@ -25,6 +25,8 @@ import DownloadLink from './components/DownloadLink.vue'
 
 import LatestTips from './components/LatestTips.vue' //最新更新提示组件
 
+import GearCalculator from './components/GearCalculator/GearCalculator.vue' //齿轮计算器组件
+
 
 /** @type {import('vitepress').Theme} */
 export default {
@@ -39,6 +41,9 @@ export default {
     app.component('DownloadLink',DownloadLink);
 
     app.component('LatestTips', LatestTips);
+
+    //标准齿轮计算组件
+    app.component('GearCalculator', GearCalculator)
     
     // 切换路由进度条
     if (inBrowser) {
